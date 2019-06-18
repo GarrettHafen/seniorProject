@@ -63,7 +63,7 @@ const Home = () => {
                 width='1704px'
             />
             <Break
-                src='hr-fourwheeler.png'
+                src='hr-train.png'
             />
             <BannerImage
                 src='../static/carouselMist.png'
@@ -71,11 +71,11 @@ const Home = () => {
                 width='1278px'
             />
             <Break
-                src='hr-fishy.png'
+                src='hr-tumbleweed.png'
             />
             <div style={logInSection} className="logInSection"></div>
             <Break
-                src='hr-horse.png'
+                src='hr-petroglyphs.png'
             />
             <div  className="bottom">
                 <div style={left} className="left">
