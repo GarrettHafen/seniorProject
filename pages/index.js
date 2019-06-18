@@ -7,9 +7,7 @@ import Tile from '../components/tiles';
 import Instructions from '../components/instructions'
 
 const bodyStyle = {
-    background: 'url(static/bg.png)',
-    backgroundRepeat: 'repeat',
-    height: '2500px'
+    height: '100%'
 }
 
 const logInSection = {
@@ -32,7 +30,7 @@ const left = {
     width: '30%',
     float: 'left',
     margin: '25px',
-    backgroundColor: 'rgba(95,52,33, .75)',
+    background: 'linear-gradient( rgba(95,52,33, 0.85), rgba(95,52,33, 0.85) ),url("../static/uprightRoad.png") no-repeat',
     borderRadius: '35px',
     color: '#E1E1DA',
     textAlign: 'center',
@@ -76,6 +74,9 @@ const Home = () => {
                 src='hr-fishy.png'
             />
             <div style={logInSection} className="logInSection"></div>
+            <Break
+                src='hr-horse.png'
+            />
             <div  className="bottom">
                 <div style={left} className="left">
                     

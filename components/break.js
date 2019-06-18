@@ -8,7 +8,7 @@ const Break = props => {
         width: '100%',
         border: 'none',
         height: '60px',
-        margin: '25px 0'
+        margin: '75px 0'
     }
 
     return(
