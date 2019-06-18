@@ -3,11 +3,13 @@ import Nav from '../components/nav';
 import BannerImage from'../components/bannerImage';
 import Break from '../components/break';
 import Head from 'next/head';
+import Tile from '../components/tiles';
+import Instructions from '../components/instructions'
 
 const bodyStyle = {
     background: 'url(static/bg.png)',
     backgroundRepeat: 'repeat',
-    height: '10000px'
+    height: '2500px'
 }
 
 const logInSection = {
@@ -28,9 +30,13 @@ const middle = {
 const left = {
     height: '600px',
     width: '30%',
-    border: '1px solid black',
     float: 'left',
-    margin: '25px'
+    margin: '25px',
+    backgroundColor: 'rgba(95,52,33, .75)',
+    borderRadius: '35px',
+    color: '#E1E1DA',
+    textAlign: 'center',
+    fontSize: '1.2em'
 }
 
 const right = {
@@ -42,7 +48,8 @@ const right = {
 
 const smallSection = {
     height: '200px',
-    border: '1px solid blue'
+    border: '1px solid blue',
+    margin: '5px'
 }
 
 const Home = () => {
@@ -70,16 +77,43 @@ const Home = () => {
             />
             <div style={logInSection} className="logInSection"></div>
             <div  className="bottom">
-                <div style={left} className="left"></div>
+                <div style={left} className="left">
+                    
+                    <Instructions
+                    
+                    />
+                </div>
                 <div style={middle} className="middle">
-                    <div style={smallSection} className="wildLife"></div>
-                    <div style={smallSection} className="familyHistory"></div>
-                    <div style={smallSection} className="buildings"></div>
+                    <Tile
+                        src='wildlife.js'
+                        title='Wildlife'
+                        image="horses.png"
+                    />
+                    <Tile
+                        src='familyHistory.js'
+                        title='Family History'
+                        image='corgi.png'
+                    />
+                    <Tile
+                        src='buildings.js'
+                        title='Buildings'
+                        image='pond.png'
+                    />
                 </div>
                 <div style={right} className="right">
-                    <div style={smallSection} className="workProjects"></div>
-                    <div style={smallSection} className="donations"></div>
-                    <div style={smallSection} className="privacyPolicy"></div>
+                    <Tile
+                        src='workProjects.js'
+                        title='Work Projects'
+                        image='river.png'
+                    /><Tile
+                        src='donations.js'
+                        title='Donations'
+                        image='clouds.png'
+                    /><Tile
+                        src='privacyPolicy.js'
+                        title='Privacy Policy'
+                        image='road.png'
+                    />
                 </div>
             </div>
         </div>

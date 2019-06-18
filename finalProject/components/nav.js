@@ -5,7 +5,7 @@ const navStyle = {
     position: 'absolute',
     top: '100px',
     backgroundColor: '#6D5E41',
-    boxShadow: '0px 10px 10px - 5px rgba(0, 0, 0, 0.75)'
+    boxShadow: '-10px 10px 10px -5px rgba(0, 0, 0, 0.35), 10px 10px 10px -5px rgba(0, 0, 0, 0.35'
 
 }
 const ulStyle = {
@@ -13,8 +13,7 @@ const ulStyle = {
     height: '50px',
     textAlign: 'right',
     paddingTop: '11px',
-    margin: '0',
-    boxShadow: '0px 10px 10px - 5px rgba(0, 0, 0, 0.75)'
+    margin: '0'
 }
 
 const logoStyle = {
@@ -43,7 +42,7 @@ const Nav = props => (
             />
             <LI
                 src='history.js'
-                title="History"
+                title="Family History"
             />
             <LI
                 src='calendar.js'

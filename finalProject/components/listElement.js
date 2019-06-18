@@ -17,14 +17,9 @@ const liStyle = {
     padding: '5px 10px 0 15px'
 }
 
-const linkStyle = {
-    textDecoration: 'none',
-    color: "#E1E1DA",
-    textTransform: "uppercase"
-}
 
 const LI = props => (
-    <li style={liStyle}><HoverText className="navThingy" href={props.src}>{props.title}</HoverText></li>
+    <li style={liStyle}><HoverText href={props.src}>{props.title}</HoverText></li>
 )
 
 export default LI;
