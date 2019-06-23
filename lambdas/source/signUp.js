@@ -52,6 +52,8 @@ exports.handler = async (event, context) => {
         password: await hashString(params.password, 10),
     };
 
+    // TODO: save as user obj in contentful
+
     return {
         statusCode: 200,
         body: JSON.stringify(createInput)
