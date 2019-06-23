@@ -6,14 +6,17 @@
   "scripts": {
     "dev": "node server.js",
     "deploy": "next build && next export",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lambda-dev": "netlify-lambda serve ./lambdas/source/"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.1",
     "express": "^4.17.1",
+    "netlify-lambda": "^1.4.13",
     "next": "^8.1.0",
+    "querystring": "^0.2.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.3.1"
