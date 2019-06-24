@@ -4,7 +4,8 @@ import BannerImage from'../components/bannerImage';
 import Break from '../components/break';
 import Head from 'next/head';
 import Tile from '../components/tiles';
-import Instructions from '../components/instructions'
+import Instructions from '../components/instructions';
+import Third from '../components/third'
 
 const bodyStyle = {
     height: '100%'
@@ -15,18 +16,22 @@ const logInSection = {
     height: '300px',
     display: 'block',
     margin: 'auto',
-    border: '1px solid black'
+    textAlign: 'center'
 }
 
 const middle = {
     width: '30%',
-    height: '600px',
+    height: '650px',
     float: 'left',
-    margin: '25px'
+    margin: '25px',
+    display: 'flex',
+    margin: '25px',
+    flexDirection: 'column',
+    justifyContent: 'space-between'
 }
 
 const left = {
-    height: '600px',
+    height: '650px',
     width: '30%',
     float: 'left',
     margin: '25px',
@@ -39,9 +44,13 @@ const left = {
 
 const right = {
     width: '30%',
-    height: '600px',
+    height: '650px',
     float: 'left',
-    margin: '25px'
+    margin: '25px',
+    display: 'flex',
+    margin: '25px',
+    flexDirection: 'column',
+    justifyContent: 'space-between'
 }
 
 const smallSection = {
@@ -73,7 +82,32 @@ const Home = () => {
             <Break
                 src='hr-tumbleweed.png'
             />
-            <div style={logInSection} className="logInSection"></div>
+            <div style={logInSection} className="logInSection">
+                <Third
+                    header="fire watches"
+                    name="Fire Warnings"
+                    src="static/hr-fish.png"
+                    paragarph="Fire Saftey is very important at the ranch, click here to check the current fire information."
+                    url="https://www.nevadafireinfo.org/"
+                    color="rgba(85, 135, 146, 0.5), rgba(107, 133, 62, 0.5)"
+                ></Third>
+                <Third
+                    header="login"
+                    name="Login"
+                    src="static/hr-blank.png"
+                    paragarph="---"
+                    url="https://www.nevadafireinfo.org/"
+                    color="rgba(109, 94, 65, 0.5), rgba(85, 135, 146, 0.5)"
+                ></Third>
+                <Third
+                    header="weather"
+                    name="Check The Weather"
+                    src="static/hr-fish.png"
+                    paragarph="Heading out soon? Click here to check the weather in the area."
+                    url="https://www.nevadafireinfo.org/"
+                    color="rgba(85, 135, 146, 0.5),rgba(107, 133, 62, 0.5)"
+                ></Third>
+            </div>
             <Break
                 src='hr-petroglyphs.png'
             />

@@ -5,28 +5,26 @@ const navStyle = {
     position: 'absolute',
     top: '100px',
     backgroundColor: '#6D5E41',
-    boxShadow: '-10px 10px 10px -5px rgba(0, 0, 0, 0.35), 10px 10px 10px -5px rgba(0, 0, 0, 0.35'
-
+    boxShadow: '-10px 10px 10px -5px rgba(0, 0, 0, 0.35), 10px 10px 10px -5px rgba(0, 0, 0, 0.35',
+    display:'flex',
+    flexDirection:'row-reverse'
 }
 const ulStyle = {
-    width: '70%',
+    width: '60%',
     height: '50px',
-    textAlign: 'right',
+    textAlign: 'left',
     paddingTop: '11px',
-    margin: '0'
+    margin: '0 0 0 15px'
 }
 
 const logoStyle = {
     height: '200px',
     width: '200px',
-    filter: ('dropShadow:(0px 0px 99px rgba(255, 255, 255, 1))')
-}
-
-const linkStyle = {
-    position: 'absolute',
-    left: '450px',
+    filter: ('dropShadow:(0px 0px 99px rgba(255, 255, 255, 1))'),
+    position: 'relative',
     top: '-70px'
 }
+
 
 
 const Nav = props => (
@@ -53,7 +51,7 @@ const Nav = props => (
                 title="Login"
             />
         </ul>
-        <a style={linkStyle} href="index.html">
+        <a href="index.html">
             <img style={logoStyle} src="../static/logo2.png"></img>
             {/* see logo.png for without white */}
         </a>
