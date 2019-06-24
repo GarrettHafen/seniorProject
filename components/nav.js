@@ -1,21 +1,23 @@
 import LI from '../components/listElement';
-const navStyle = {
-    width: '100%',
-    height: '50px',
-    position: 'absolute',
-    top: '100px',
-    backgroundColor: '#6D5E41',
-    boxShadow: '-10px 10px 10px -5px rgba(0, 0, 0, 0.35), 10px 10px 10px -5px rgba(0, 0, 0, 0.35',
-    display:'flex',
-    flexDirection:'row-reverse'
-}
-const ulStyle = {
-    width: '60%',
-    height: '50px',
-    textAlign: 'left',
-    paddingTop: '11px',
-    margin: '0 0 0 15px'
-}
+import styled from 'styled-components'
+const Nav = styled.div`
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 100px;
+    background-color: #6D5E41;
+    box-shadow: -10px 10px 10px -5px rgba(0, 0, 0, 0.35), 10px 10px 10px -5px rgba(0, 0, 0, 0.35);
+    display:flex;
+    flex-direction: row-reverse
+`
+
+const UL = styled.ul`
+    width: 60%;
+    height: 50px;
+    text-align: ;left;
+    padding-top: 11px;
+    margin: 0 0 0 15px;
+`
 
 const logoStyle = {
     height: '200px',
@@ -27,9 +29,9 @@ const logoStyle = {
 
 
 
-const Nav = props => (
-    <nav style={navStyle}>
-        <ul style={ulStyle}>
+export default props => (
+    <Nav>
+        <UL> 
             <LI 
                 src='gallery.js'
                 title="Gallery"
@@ -50,12 +52,10 @@ const Nav = props => (
                 src='login.js'
                 title="Login"
             />
-        </ul>
+        </UL>
         <a href="index.html">
             <img style={logoStyle} src="../static/logo2.png"></img>
             {/* see logo.png for without white */}
         </a>
-    </nav>
+    </Nav>
 )
-
-export default Nav;
