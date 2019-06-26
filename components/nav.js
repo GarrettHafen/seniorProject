@@ -1,4 +1,4 @@
-import LI from '../components/listElement';
+import LI from './liElement';
 import styled from 'styled-components'
 const Nav = styled.div`
     width: 100%;

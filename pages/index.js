@@ -7,9 +7,6 @@ import Tile from '../components/tiles';
 import Instructions from '../components/instructions';
 import Third from '../components/third'
 
-const bodyStyle = {
-    height: '100%'
-}
 
 const logInSection = {
     width: '65%',
@@ -61,7 +58,7 @@ const smallSection = {
 
 const Home = () => {
     return(
-        <div style={bodyStyle}>
+        <div>
             <Head>
                 <link rel="stylesheet" href="/static/base.css"></link>
             </Head>
