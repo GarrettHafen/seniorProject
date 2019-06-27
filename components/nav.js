@@ -41,7 +41,7 @@ export default props => (
                 title="Things to Do"
             />
             <LI
-                src='history.js'
+                src='family-history'
                 title="Family History"
             />
             <LI
