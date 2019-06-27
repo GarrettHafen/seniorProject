@@ -10,7 +10,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div``
 
 const Home = ({content: _}) => {
-    console.log(_);
+    //console.log(_);
     return (
         <Wrapper>
             <Head>
