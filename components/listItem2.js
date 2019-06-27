@@ -1,11 +1,31 @@
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import ListImg from '../components/listImg';
-import ListHeader from '../components/listHeader';
-import ListDesc from './listItems';
 
-const ListItem = props => {
 
+export default class ListItem extends Component{
     
+    constructor() {
+        super()
+        this.state = {
+            loading:true
+        }
+    }
+
+    componentDidMount(){
+        var state = this
+        Contentful.query({content_type: "listViewElement", "fileds.pageUrl": aspath.split("/")[1]}).then((response) =>{
+            state.setState({loading: false, content: response.items[0].fields})
+        }) 
+    }
+
+    const ListItem = styled.div`
+        width: 65%;
+        height: 300px;
+        margin: 25px auto;
+        display: flex;
+        flex-direction: ${props.row};
+
+    `
     const ListLeft = styled.div`
         height: 100%;
         width: 25%;
@@ -37,10 +57,10 @@ const ListItem = props => {
     
     `
 
-    return(
+    return (
         <ListItem>
             <ListLeft>
-                <ListImg/>
+                <ListImg src={props.src}></ListImg>
             </ListLeft>
             <ListRight>
                 <ListHeader>{props.header}</ListHeader>
@@ -51,3 +71,5 @@ const ListItem = props => {
     )
 }
 
+
+}
