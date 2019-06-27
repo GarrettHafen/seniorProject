@@ -122,7 +122,7 @@ const Home = () => {
                         image="horses.png"
                     />
                     <Tile
-                        src='familyHistory'
+                        src='family-history'
                         title='Family History'
                         image='corgi.png'
                     />

@@ -37,7 +37,7 @@ export default props => (
                 title="Gallery"
             />
             <LI
-                src='thingsDo.js'
+                src='things-to-do'
                 title="Things to Do"
             />
             <LI
@@ -53,7 +53,7 @@ export default props => (
                 title="Login"
             />
         </UL>
-        <a href="index.html">
+        <a href="/">
             <img style={logoStyle} src="../static/logo2.png"></img>
             {/* see logo.png for without white */}
         </a>
