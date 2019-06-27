@@ -134,7 +134,7 @@ const Home = () => {
                 </div>
                 <div style={right} className="right">
                     <Tile
-                        src='workProjects.js'
+                        src='work-projects'
                         title='Work Projects'
                         image='river.png'
                     /><Tile
