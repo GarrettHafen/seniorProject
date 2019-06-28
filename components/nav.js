@@ -37,11 +37,11 @@ export default props => (
                 title="Gallery"
             />
             <LI
-                src='things-to-do'
+                src='/things-to-do'
                 title="Things to Do"
             />
             <LI
-                src='family-history'
+                src='/family-history'
                 title="Family History"
             />
             <LI
