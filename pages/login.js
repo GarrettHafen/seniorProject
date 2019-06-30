@@ -1,3 +1,5 @@
+//how to get a list of all users to compare the sign in attempt to
+
 import React from 'react';
 import contentful from '../helpers/contentful';
 import Nav from '../components/nav';
@@ -35,7 +37,10 @@ const Login = () => {
             />
             <Warning>For development purposes, do not use your regular password. Site is unsecure.</Warning>
             <LoginContainer></LoginContainer>
-            
+            <Button
+                url="/"
+                name="Sign Up"
+            ></Button>
         </Wrapper>
     )
 }

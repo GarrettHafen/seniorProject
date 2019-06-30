@@ -5,7 +5,8 @@ module.exports = {
       var pages = {
         '/': { page: '/' },
         '/login': { page: '/login'},
-        '/calendar' { page: '/calendar'}
+        '/calendar': { page: '/calendar'},
+        '/signup': { page: '/signup'}
       }
     const listView = await contentful.query({ content_type: "listView" });
     listView.items.map(locale => {
