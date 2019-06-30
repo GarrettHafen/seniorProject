@@ -45,11 +45,11 @@ export default props => (
                 title="Family History"
             />
             <LI
-                src='calendar.js'
+                src='/calendar'
                 title="Calendar"
             />
             <LI
-                src='login.js'
+                src='/login'
                 title="Login"
             />
         </UL>

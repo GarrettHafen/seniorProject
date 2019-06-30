@@ -28,6 +28,7 @@ export default props => {
             <Button
                 name={props.name}
                 url={props.url}
+                target={props.target}
             ></Button>
         </Third>
     )

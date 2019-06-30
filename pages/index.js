@@ -87,14 +87,16 @@ const Home = () => {
                     paragarph="Fire Saftey is very important at the ranch, click here to check the current fire information."
                     url="https://www.nevadafireinfo.org/"
                     color="rgba(85, 135, 146, 0.5), rgba(107, 133, 62, 0.5)"
+                    target="_blank"
                 ></Third>
                 <Third
                     header="login"
                     name="Login"
                     src="static/hr-blank.png"
                     paragarph="---"
-                    url="https://www.nevadafireinfo.org/"
+                    url="/login"
                     color="rgba(109, 94, 65, 0.5), rgba(85, 135, 146, 0.5)"
+                    target=""
                 ></Third>
                 <Third
                     header="weather"
@@ -103,6 +105,7 @@ const Home = () => {
                     paragarph="Heading out soon? Click here to check the weather in the area."
                     url="https://www.nevadafireinfo.org/"
                     color="rgba(85, 135, 146, 0.5),rgba(107, 133, 62, 0.5)"
+                    target="_blank"
                 ></Third>
             </div>
             <Break

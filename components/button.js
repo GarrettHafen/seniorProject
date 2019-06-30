@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { prototype } from 'stream';
 
 export default props => {
 
@@ -9,6 +10,7 @@ export default props => {
         background-color: #6D5E41;
         color: #E1E1DA;
         cursor: pointer;
+        margin: 15px;
         &:focus {outline:0;}
     `
     const A = styled.a`
@@ -16,7 +18,7 @@ export default props => {
 
     `
     return(
-        <A href={props.url} target="_blank"><Button>{props.name}</Button></A>
+        <A href={props.url} target={props.target}><Button>{props.name}</Button></A>
 
     )
 }

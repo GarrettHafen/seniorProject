@@ -3,7 +3,9 @@ const contentful = require("./helpers/contentful");
 module.exports = {
     async exportPathMap() {
       var pages = {
-        '/': { page: '/' }
+        '/': { page: '/' },
+        '/login': { page: '/login'},
+        '/calendar' { page: '/calendar'}
       }
     const listView = await contentful.query({ content_type: "listView" });
     listView.items.map(locale => {
