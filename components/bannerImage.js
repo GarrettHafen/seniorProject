@@ -1,4 +1,4 @@
-import LI from'../components/listElement';
+import LI from'./liElement';
 
 
 
