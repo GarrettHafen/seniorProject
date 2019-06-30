@@ -1,4 +1,4 @@
-import { hashString } from "./helpers/crypto";
+import { hashString, createId } from "./helpers/crypto";
 import {
   CONTENTFUL_SPACE_ID,
   CONTENTFUL_DELIVERY_ACCESS_TOKEN,
@@ -60,6 +60,7 @@ exports.handler = async event => {
 
   // contentful is all about locality, so everything we do will be in 'en-US' by default
   const createInput = {
+    userId: { "en-US": createId() },
     email: { "en-US": params.email },
     password: { "en-US": await hashString(params.password, 10) }
   };

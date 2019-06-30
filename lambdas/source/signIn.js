@@ -1,4 +1,4 @@
-import { compareStringToHash } from "./helpers/crypto";
+import { compareStringToHash, generateToken } from "./helpers/crypto";
 import {
   CONTENTFUL_SPACE_ID,
   CONTENTFUL_DELIVERY_ACCESS_TOKEN
@@ -72,10 +72,21 @@ exports.handler = async event => {
     };
   }
 
+  let { token, expiration } = generateToken(contenfulUser.fields.id);
+
+  const userToReturn = {
+    id: contenfulUser.fields.id,
+    email: contenfulUser.fields.email
+  };
+
   // all good; return user
   // TODO: jwt token
   return {
     statusCode: 200,
-    body: JSON.stringify(contenfulUser)
+    body: JSON.stringify({
+      user: userToReturn,
+      token,
+      expiration
+    })
   };
 };
