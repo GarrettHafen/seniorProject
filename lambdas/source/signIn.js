@@ -75,7 +75,7 @@ exports.handler = async event => {
   let { token, expiration } = generateToken(contenfulUser.fields.id);
 
   const userToReturn = {
-    id: contenfulUser.fields.id,
+    userId: contenfulUser.fields.userId,
     email: contenfulUser.fields.email
   };
 

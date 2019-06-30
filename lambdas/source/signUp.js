@@ -1,4 +1,4 @@
-import { hashString, createId } from "./helpers/crypto";
+import { hashString, createId, generateToken } from "./helpers/crypto";
 import {
   CONTENTFUL_SPACE_ID,
   CONTENTFUL_DELIVERY_ACCESS_TOKEN,
@@ -58,6 +58,8 @@ exports.handler = async event => {
     };
   }
 
+  // TODO: add some kind of email validation???
+
   // contentful is all about locality, so everything we do will be in 'en-US' by default
   const createInput = {
     userId: { "en-US": createId() },
@@ -74,9 +76,20 @@ exports.handler = async event => {
   // automatically publish; users shouldn't be drafts
   await newEntry.publish();
 
+  let { token, expiration } = generateToken(newEntry.fields.userId["en-US"]);
+
+  const userToReturn = {
+    userId: newEntry.fields.userId["en-US"],
+    email: newEntry.fields.email["en-US"]
+  };
+
   // return info to the user
   return {
     statusCode: 200,
-    body: JSON.stringify(createInput)
+    body: JSON.stringify({
+      user: userToReturn,
+      token,
+      expiration
+    })
   };
 };
