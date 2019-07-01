@@ -1,0 +1,5 @@
+export const CONTENTFUL_SPACE_ID = "t5i7iuryq60u";
+export const CONTENTFUL_DELIVERY_ACCESS_TOKEN =
+  "6Ffi2n4m1lWhLzylHaukbOdCdd1CLkqPQ1ty7PENImQ";
+export const CONTENTFUL_MANAGEMENT_ACCESS_TOKEN =
+  "CFPAT-ybWenfMubbuD_vFN7rtxw1jP8X4VAGW1SIZNorC6CCw";

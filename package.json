@@ -6,21 +6,29 @@
   "scripts": {
     "dev": "node server.js",
     "deploy": "next build && next export",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lambda-dev": "netlify-lambda serve ./lambdas/source/"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.1",
     "contentful": "^7.8.0",
+    "contentful-management": "^5.9.0",
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-react": "^7.14.2",
     "express": "^4.17.1",
     "moment": "^2.24.0",
+    "jsonwebtoken": "^8.5.1",
+    "netlify-lambda": "^1.4.13",
     "next": "^8.1.0",
     "react": "^16.8.6",
     "react-big-calendar": "^0.22.0",
     "react-dom": "^16.8.6",
     "react-tackle-box": "^2.1.0",
-    "styled-components": "^4.3.1"
+    "styled-components": "^4.3.1",
+    "uuid": "^3.3.2"
   },
   "babel": {
     "env": {
