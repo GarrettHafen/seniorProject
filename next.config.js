@@ -1,19 +1,13 @@
 const contentful = require("./helpers/contentful");
 
 module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"]
-      }
-    ]
-  },
+  const withSass = require('@zeit/next-sass')
   async exportPathMap() {
     var pages = {
       "/": { page: "/" },
       "/login": { page: "/login" },
-      "/signup": { page: "/signup" }
+      "/signup": { page: "/signup" },
+      "/calendar2": { page: "/calendar2" }
     };
     const listView = await contentful.query({ content_type: "listView" });
     listView.items.map(locale => {
@@ -24,3 +18,5 @@ module.exports = {
     return pages;
   }
 };
+
+module.exports = withSass()
