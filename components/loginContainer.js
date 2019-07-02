@@ -31,7 +31,7 @@ export default props => {
       <LoginPiece name="UserName" type="text" />
       <LoginLabel>Password: </LoginLabel>
       <LoginPiece name="Password" type="password" />
-      <Button type="submit" name="Login" />
+      <Button type="submit" name="Login?" />
     </LoginContainer>
   );
 };

@@ -1,7 +1,6 @@
 const contentful = require("./helpers/contentful");
 
 module.exports = {
-  const withSass = require('@zeit/next-sass')
   async exportPathMap() {
     var pages = {
       "/": { page: "/" },
@@ -18,5 +17,3 @@ module.exports = {
     return pages;
   }
 };
-
-module.exports = withSass()
