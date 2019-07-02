@@ -7,6 +7,7 @@
     "dev": "node server.js",
     "deploy": "next build && next export",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lambda-build": "netlify-lambda build ./lambdas/source/",
     "lambda-dev": "netlify-lambda serve ./lambdas/source/"
   },
   "author": "",
