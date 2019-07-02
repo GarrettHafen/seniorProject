@@ -7,15 +7,12 @@ module.exports = {
     es6: true,
     node: true
   },
-  extends: ["eslint:recommended", "prettier", "plugin:react/recommended"],
-  settings: {
-    react: {
-      createClass: "createReactClass",
-      pragma: "React",
-      version: "16.3",
-      flowVersion: "0.53"
-    }
-  },
+  extends: [
+    "eslint:recommended",
+    "prettier",
+    "plugin:react/recommended",
+    "react-app"
+  ],
   parserOptions: {
     ecmaVersion: 8,
     sourceType: "module",
@@ -24,11 +21,11 @@ module.exports = {
     },
     sourceType: "module"
   },
-  plugins: ["react"],
+  plugins: ["react", "prettier"],
   rules: {
     "no-console": "off",
     indent: [2, 2, { SwitchCase: 1 }],
-    "linebreak-style": ["error", "unix"],
+    "linebreak-style": ["error", "windows"],
     quotes: ["error", "double"],
     semi: ["error", "always"],
     "space-before-function-paren": 0,
@@ -38,6 +35,8 @@ module.exports = {
       "error",
       { vars: "all", args: "after-used", ignoreRestSiblings: false }
     ],
-    "react/prop-types": [0]
+    "react/prop-types": [0],
+    "prettier/prettier": "error",
+    "react/display-name": [enabled, { ignoreTranspilerName: false }]
   }
 };
