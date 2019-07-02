@@ -14,14 +14,16 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
-    "babel-plugin-styled-components": "^1.10.1",
+    "babel-preset-react": "^6.24.1",
     "contentful": "^7.8.0",
     "contentful-management": "^5.9.0",
+    "css-loader": "^3.0.0",
     "eslint": "^6.0.1",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-react": "^7.14.2",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "markdown-jsx-loader": "^3.0.2",
     "moment": "^2.24.0",
     "netlify-lambda": "^1.4.13",
     "next": "^8.1.0",
@@ -29,6 +31,7 @@
     "react-big-calendar": "^0.22.0",
     "react-dom": "^16.8.6",
     "react-tackle-box": "^2.1.0",
+    "sass": "^1.22.2",
     "styled-components": "^4.3.1",
     "uuid": "^3.3.2"
   },
@@ -84,5 +87,8 @@
         ]
       }
     }
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.6"
   }
 }
