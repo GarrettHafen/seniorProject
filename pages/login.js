@@ -21,7 +21,7 @@ const Warning = styled.div`
 `
 
 const Login = () => {
-    return(
+    return (
         <Wrapper>
             <Head>
                 <link rel="stylesheet" href="/static/base.css"></link>
@@ -33,7 +33,7 @@ const Login = () => {
                 width='1704px'
             />
             <H1
-               content= 'Login' 
+                content='Login'
             />
             <Warning>For development purposes, do not use your regular password. Site is unsecure.</Warning>
             <LoginContainer></LoginContainer>
