@@ -4,7 +4,7 @@ import {
   CONTENTFUL_DELIVERY_ACCESS_TOKEN
 } from "./helpers/keys";
 import * as contentfulDelivery from "contentful";
-
+console.log("Real beginning test");
 exports.handler = async event => {
   // instantiate the deliveryClient (client used for querying and displaying content)
   // we will use this to check and see if any users for a given email exist
@@ -16,10 +16,12 @@ exports.handler = async event => {
   });
 
   // Only allow POST
+  console.log("lambda function start");
   if (event.httpMethod !== "POST") {
+    console.log(event.httpMethod);
     return {
       statusCode: 405,
-      body: JSON.stringify({ error: "Method not allowed ya dummy" })
+      body: JSON.stringify({ error: "Method not allowed, ya dummy" })
     };
   }
 
