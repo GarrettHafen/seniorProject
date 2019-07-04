@@ -7,7 +7,31 @@ import {
 import * as contentfulDelivery from "contentful";
 import * as contentfulManagement from "contentful-management";
 
+const statusCode = 200;
+const headers = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "Content-Type"
+};
+
+function response(dataObj) {
+  return {
+    statusCode,
+    headers,
+    body: JSON.stringify(dataObj)
+  };
+}
+
 exports.handler = async event => {
+  // handle preflight; Ughhhhhhhhhhhhhhhh
+  // Non-simple requests (POST, PUT, or DELETE requests, ones with many headers,
+  // etc) will first preflight requests that check with the server to see which
+  // kinds of requests are allowed. In this instances, `event.httpMethod` will equal
+  // 'OPTIONS'. When we get that request, it's important to response with a status
+  // code of 200, and the headers that are allowed to come in on the next request!
+  if (event.httpMethod !== "POST") {
+    return response({ message: "This was not a POST request!" });
+  }
+
   // instantiate the deliveryClient (client used for querying and displaying content)
   // we will use this to check and see if any users for a given email exist
   const deliveryClient = contentfulDelivery.createClient({
@@ -24,23 +48,14 @@ exports.handler = async event => {
     accessToken: CONTENTFUL_MANAGEMENT_ACCESS_TOKEN
   });
 
-  // Only allow POST
-  if (event.httpMethod !== "POST") {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ error: "Method not allowed" })
-    };
-  }
-
   // get the data from the request body
   const params = JSON.parse(event.body);
 
   // validation; ensure that a email and password are provided, otherwise return error
   if (!params.email || !params.password) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({ error: "Must include email and password params" })
-    };
+    return response({
+      error: "Must include email and password params"
+    });
   }
 
   // validation; check if user already exists for provided email, otherwise return error
@@ -50,12 +65,9 @@ exports.handler = async event => {
   });
 
   if (userCheck.items.length > 0) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({
-        error: "An account with the provided email already exists."
-      })
-    };
+    return response({
+      error: "An account with the provided email already exists."
+    });
   }
 
   // TODO: add some kind of email validation???
@@ -84,12 +96,9 @@ exports.handler = async event => {
   };
 
   // return info to the user
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      user: userToReturn,
-      token,
-      expiration
-    })
-  };
+  return response({
+    user: userToReturn,
+    token,
+    expiration
+  });
 };
