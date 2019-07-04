@@ -8,7 +8,10 @@
     "deploy": "next build && next export",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lambda-build": "netlify-lambda build ./lambdas/source/",
-    "lambda-dev": "netlify-lambda serve ./lambdas/source/"
+    "lambda-dev": "netlify-lambda serve ./lambdas/source/",
+    "start": "cross-env NODE_ENV=dev npm-run-all --parallel start:app start:server",
+    "start:app": "PORT=3000 node server.js",
+    "start:server": "netlify-lambda serve functions"
   },
   "author": "",
   "license": "ISC",
@@ -28,12 +31,13 @@
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-react": "^7.14.2",
     "express": "^4.17.1",
+    "http-proxy-middleware": "^0.19.1",
     "jsonwebtoken": "^8.5.1",
     "markdown-jsx-loader": "^3.0.2",
     "moment": "^2.24.0",
     "netlify-lambda": "^1.4.13",
     "next": "^8.1.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.12.0",s
     "react": "^16.8.6",
     "react-big-calendar": "^0.22.0",
     "react-dom": "^16.8.6",

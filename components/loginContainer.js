@@ -20,6 +20,15 @@ const LoginPiece = styled.input`
   margin-top: 7px;
   padding-left: 5px;
 `;
+// test
+const response = {
+  statusCode: 200,
+  headers: {
+    "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+    "Access-Control-Allow-Credentials": true // Required for cookies, authorization headers with HTTPS
+  },
+  body: JSON.stringify({ message: "Hello World!" })
+};
 
 class Login extends Component {
   constructor(props) {
@@ -40,6 +49,10 @@ class Login extends Component {
       })
       .then(res => {
         console.log(res);
+      })
+      .catch(error => {
+        console.log("this is an error :" + error.res);
+        console.log(JSON.stringify(error));
       });
   }
 
@@ -47,7 +60,7 @@ class Login extends Component {
     var form = this.state.form;
     form[e.target.name] = e.target.value;
     this.setState({ form: form }, () => {
-      console.log(this.state.form);
+      //console.log(this.state.form);
     });
   }
 
