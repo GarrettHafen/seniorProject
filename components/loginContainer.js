@@ -20,15 +20,6 @@ const LoginPiece = styled.input`
   margin-top: 7px;
   padding-left: 5px;
 `;
-// test
-const response = {
-  statusCode: 200,
-  headers: {
-    "Access-Control-Allow-Origin": "*", // Required for CORS support to work
-    "Access-Control-Allow-Credentials": true // Required for cookies, authorization headers with HTTPS
-  },
-  body: JSON.stringify({ message: "Hello World!" })
-};
 
 class Login extends Component {
   constructor(props) {

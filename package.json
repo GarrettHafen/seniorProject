@@ -4,14 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "PORT=3000 node server.js",
     "deploy": "next build && next export",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lambda-build": "netlify-lambda build ./lambdas/source/",
     "lambda-dev": "netlify-lambda serve ./lambdas/source/",
-    "start": "cross-env NODE_ENV=dev npm-run-all --parallel start:app start:server",
-    "start:app": "PORT=3000 node server.js",
-    "start:server": "netlify-lambda serve functions"
+    "start": "cross-env NODE_ENV=dev npm-run-all --parallel dev lambda-dev"
   },
   "author": "",
   "license": "ISC",
@@ -23,9 +21,9 @@
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "axios": "^0.19.0",
-    "babel-preset-react": "^6.24.1",
     "contentful": "^7.8.0",
     "contentful-management": "^5.9.0",
+    "cross-env": "^5.2.0",
     "css-loader": "^3.0.0",
     "eslint": "^6.0.1",
     "eslint-config-prettier": "^6.0.0",
@@ -37,7 +35,8 @@
     "moment": "^2.24.0",
     "netlify-lambda": "^1.4.13",
     "next": "^8.1.0",
-    "node-sass": "^4.12.0",s
+    "node-sass": "^4.12.0",
+    "npm-run-all": "^4.1.5",
     "react": "^16.8.6",
     "react-big-calendar": "^0.22.0",
     "react-dom": "^16.8.6",
@@ -47,57 +46,25 @@
     "uuid": "^3.3.2"
   },
   "babel": {
-    "env": {
-      "development": {
-        "presets": [
-          "next/babel"
-        ],
-        "plugins": [
-          [
-            "styled-components",
-            {
-              "ssr": true,
-              "displayName": true
-            }
-          ]
-        ]
-      },
-      "production": {
-        "presets": [
-          "next/babel"
-        ],
-        "plugins": [
-          [
-            "styled-components",
-            {
-              "ssr": true,
-              "displayName": true
-            }
-          ]
-        ]
-      },
-      "test": {
-        "presets": [
-          [
-            "next/babel",
-            {
-              "preset-env": {
-                "modules": "commonjs"
-              }
-            }
-          ]
-        ],
-        "plugins": [
-          [
-            "styled-components",
-            {
-              "ssr": true,
-              "displayName": true
-            }
-          ]
-        ]
-      }
-    }
+    "presets": [
+      [
+        "next/babel",
+        {
+          "preset-env": {
+            "modules": "commonjs"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "styled-components",
+        {
+          "ssr": true,
+          "displayName": true
+        }
+      ]
+    ]
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.6"
