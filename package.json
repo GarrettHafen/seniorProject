@@ -21,7 +21,6 @@
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "axios": "^0.19.0",
-    "babel-preset-react": "^6.24.1",
     "contentful": "^7.8.0",
     "contentful-management": "^5.9.0",
     "cross-env": "^5.2.0",
