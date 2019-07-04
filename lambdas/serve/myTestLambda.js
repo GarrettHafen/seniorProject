@@ -86,7 +86,10 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 exports.handler = function (event, context, callback) {
   // your server-side functionality

@@ -4,8 +4,38 @@ import {
   CONTENTFUL_DELIVERY_ACCESS_TOKEN
 } from "./helpers/keys";
 import * as contentfulDelivery from "contentful";
-console.log("Real beginning test");
-exports.handler = async event => {
+
+// Ot looks like with lambdas you'll always want to
+// return a status code of 200, else everything breaks.
+// Same with the headers. So here's a helper function
+// that returns the same format for every return, only
+// the body content differs.
+const statusCode = 200;
+const headers = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "Content-Type"
+};
+
+function response(dataObj) {
+  return {
+    statusCode,
+    headers,
+    body: JSON.stringify(dataObj)
+  };
+}
+
+// for preflight responses // POST, PUT,
+exports.handler = async (event, context) => {
+  // handle preflight; Ughhhhhhhhhhhhhhhh
+  // Non-simple requests (POST, PUT, or DELETE requests, ones with many headers,
+  // etc) will first preflight requests that check with the server to see which
+  // kinds of requests are allowed. In this instances, `event.httpMethod` will equal
+  // 'OPTIONS'. When we get that request, it's important to response with a status
+  // code of 200, and the headers that are allowed to come in on the next request!
+  if (event.httpMethod !== "POST") {
+    return response({ message: "This was not a POST request!" });
+  }
+
   // instantiate the deliveryClient (client used for querying and displaying content)
   // we will use this to check and see if any users for a given email exist
   const deliveryClient = contentfulDelivery.createClient({
@@ -15,25 +45,14 @@ exports.handler = async event => {
     accessToken: CONTENTFUL_DELIVERY_ACCESS_TOKEN
   });
 
-  // Only allow POST
-  console.log("lambda function start");
-  if (event.httpMethod !== "POST") {
-    console.log(event.httpMethod);
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ error: "Method not allowed, ya dummy" })
-    };
-  }
-
-  // get the data from the request body
+  // // get the data from the request body
   const params = JSON.parse(event.body);
 
   // validation; ensure that a email and password are provided, otherwise return error
   if (!params.email || !params.password) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({ error: "Must include email and password params" })
-    };
+    return response({
+      error: "Must include email and password params"
+    });
   }
 
   // validation; ensure user exists for provided email, otherwise return error
@@ -52,12 +71,9 @@ exports.handler = async event => {
   ) {
     // return an error. We don't want to be too descriptive in our response so that
     // wrong-doers aren't given any hints or clues on how to continue breaking into the system
-    return {
-      statusCode: 400,
-      body: JSON.stringify({
-        error: "Invalid credentials!"
-      })
-    };
+    return response({
+      error: "Invalid credentials!"
+    });
   }
   // email is good
   const contenfulUser = userCheck.items[0];
@@ -66,12 +82,9 @@ exports.handler = async event => {
   if (
     !(await compareStringToHash(params.password, contenfulUser.fields.password))
   ) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({
-        error: "Invalid credentials."
-      })
-    };
+    return response({
+      error: "Invalid credentials!"
+    });
   }
 
   let { token, expiration } = generateToken(contenfulUser.fields.id);
@@ -83,12 +96,9 @@ exports.handler = async event => {
 
   // all good; return user
   // TODO: jwt token
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      user: userToReturn,
-      token,
-      expiration
-    })
-  };
+  return response({
+    user: userToReturn,
+    token,
+    expiration
+  });
 };
