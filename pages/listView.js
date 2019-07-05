@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { Component } from "react";
 import contentful from '../helpers/contentful';
 import Nav from '../components/nav';
-import BannerImage from'../components/bannerImage';
+import BannerImage from '../components/bannerImage';
 import Head from 'next/head';
 import H1 from '../components/header';
 import ListItems from '../components/listItems';
 import styled from 'styled-components';
+import Router from 'next/router';
 
 const Wrapper = styled.div``
 
-const Home = ({content: _}) => {
-    //console.log(_);
+const Home = ({ content: _ }) => {
+
     return (
         <Wrapper>
             <Head>
@@ -49,12 +50,11 @@ const Home = ({content: _}) => {
                 row='row'
                 textDirection='left'
             />
-        
+
         </Wrapper>
-        
-        
+
+
     )
-    
 }
 
 
@@ -62,18 +62,11 @@ Home.getInitialProps = async ({ asPath }) => {
     const res = await contentful.query({
         content_type: "listView",
         "fields.pageUrl": asPath.split("/")[1]
-        
+
     });
 
-    /* const links = await contentful.query({
-        "sys.id": "3Pc5p5fUehgdgFNIegZpwn"
-    }); deal with later */
-
     return {
-        content: res.items[0].fields,
-        //navLinks: links.items[0].fields.imageWithLink
-        
+        content: res.items[0].fields
     };
 };
-//this is a test
 export default Home;

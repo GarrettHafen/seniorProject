@@ -113,6 +113,13 @@ var contentfulDelivery = _interopRequireWildcard(__webpack_require__(143));
 // Same with the headers. So here's a helper function
 // that returns the same format for every return, only
 // the body content differs.
+//garrett note: can we make a 3rd user "System" who 
+//creates the users instead of Ian Clawson as the author?
+// need to do:
+// redirect to home page (or page they were trying to get to?) upon success
+// create email?? (phase 5)
+//ideas 
+// insert create contentful into handleSubmit to test calendar logic
 var statusCode = 200;
 var headers = {
   "Access-Control-Allow-Origin": "*",
@@ -134,7 +141,7 @@ function () {
   var _ref = (0, _asyncToGenerator2.default)(
   /*#__PURE__*/
   _regenerator.default.mark(function _callee(event, context) {
-    var deliveryClient, params, userCheck, contenfulUser, _generateToken, token, expiration, userToReturn;
+    var deliveryClient, params, userCheck, contentfulUser, _generateToken, token, expiration, userToReturn;
 
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
@@ -167,7 +174,7 @@ function () {
             }
 
             return _context.abrupt("return", response({
-              error: "Must include email and password params"
+              error: "Please fill out all the fields."
             }));
 
           case 6:
@@ -191,10 +198,10 @@ function () {
 
           case 11:
             // email is good
-            contenfulUser = userCheck.items[0]; // validation; check and see if the password provided matches the hash saved on the user object
+            contentfulUser = userCheck.items[0]; // validation; check and see if the password provided matches the hash saved on the user object
 
             _context.next = 14;
-            return (0, _crypto.compareStringToHash)(params.password, contenfulUser.fields.password);
+            return (0, _crypto.compareStringToHash)(params.password, contentfulUser.fields.password);
 
           case 14:
             if (_context.sent) {
@@ -207,10 +214,21 @@ function () {
             }));
 
           case 16:
-            _generateToken = (0, _crypto.generateToken)(contenfulUser.fields.id), token = _generateToken.token, expiration = _generateToken.expiration;
+            if (!(contentfulUser.fields.approved === false)) {
+              _context.next = 18;
+              break;
+            }
+
+            return _context.abrupt("return", response({
+              error: "Your account has not been approved."
+            }));
+
+          case 18:
+            _generateToken = (0, _crypto.generateToken)(contentfulUser.fields.id), token = _generateToken.token, expiration = _generateToken.expiration;
             userToReturn = {
-              userId: contenfulUser.fields.userId,
-              email: contenfulUser.fields.email
+              userId: contentfulUser.fields.userId,
+              email: contentfulUser.fields.email,
+              name: contentfulUser.fields.firstName + " " + contentfulUser.fields.lastName
             }; // all good; return user
             // TODO: jwt token
 
@@ -220,7 +238,7 @@ function () {
               expiration: expiration
             }));
 
-          case 19:
+          case 21:
           case "end":
             return _context.stop();
         }
@@ -11104,7 +11122,7 @@ module.exports = require("zlib");
 /* 176 */
 /***/ (function(module) {
 
-module.exports = {"_from":"axios@^0.19.0","_id":"axios@0.19.0","_inBundle":false,"_integrity":"sha512-1uvKqKQta3KBxIz14F2v06AEHZ/dIoeKfbTRkK1E5oqjDnuEerLmYTgJB5AiQZHJcljpg1TuRzdjDR06qNk0DQ==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.19.0","name":"axios","escapedName":"axios","rawSpec":"^0.19.0","saveSpec":null,"fetchSpec":"^0.19.0"},"_requiredBy":["/contentful"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.19.0.tgz","_shasum":"8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8","_spec":"axios@^0.19.0","_where":"/Users/iclawson/Tech/seniorProject/node_modules/contentful","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"1.5.10","is-buffer":"^2.0.2"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"bundlesize":"^0.17.0","coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.0.2","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^20.1.0","grunt-karma":"^2.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^1.0.18","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^1.3.0","karma-chrome-launcher":"^2.2.0","karma-coverage":"^1.1.1","karma-firefox-launcher":"^1.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-opera-launcher":"^1.0.0","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^1.2.0","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.7","karma-webpack":"^1.7.0","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^5.2.0","sinon":"^4.5.0","typescript":"^2.8.1","url-search-params":"^0.10.0","webpack":"^1.13.1","webpack-dev-server":"^1.14.1"},"homepage":"https://github.com/axios/axios","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test && bundlesize","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","version":"0.19.0"};
+module.exports = {"_args":[["axios@0.19.0","/Users/garretthafen/Documents/GitHub/seniorProject"]],"_from":"axios@0.19.0","_id":"axios@0.19.0","_inBundle":false,"_integrity":"sha512-1uvKqKQta3KBxIz14F2v06AEHZ/dIoeKfbTRkK1E5oqjDnuEerLmYTgJB5AiQZHJcljpg1TuRzdjDR06qNk0DQ==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.19.0","name":"axios","escapedName":"axios","rawSpec":"0.19.0","saveSpec":null,"fetchSpec":"0.19.0"},"_requiredBy":["/","/contentful","/contentful-management"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.19.0.tgz","_spec":"0.19.0","_where":"/Users/garretthafen/Documents/GitHub/seniorProject","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"1.5.10","is-buffer":"^2.0.2"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"bundlesize":"^0.17.0","coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.0.2","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^20.1.0","grunt-karma":"^2.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^1.0.18","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^1.3.0","karma-chrome-launcher":"^2.2.0","karma-coverage":"^1.1.1","karma-firefox-launcher":"^1.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-opera-launcher":"^1.0.0","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^1.2.0","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.7","karma-webpack":"^1.7.0","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^5.2.0","sinon":"^4.5.0","typescript":"^2.8.1","url-search-params":"^0.10.0","webpack":"^1.13.1","webpack-dev-server":"^1.14.1"},"homepage":"https://github.com/axios/axios","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test && bundlesize","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","version":"0.19.0"};
 
 /***/ }),
 /* 177 */

@@ -10957,7 +10957,7 @@ module.exports = require("zlib");
 /* 176 */
 /***/ (function(module) {
 
-module.exports = {"_from":"axios@^0.19.0","_id":"axios@0.19.0","_inBundle":false,"_integrity":"sha512-1uvKqKQta3KBxIz14F2v06AEHZ/dIoeKfbTRkK1E5oqjDnuEerLmYTgJB5AiQZHJcljpg1TuRzdjDR06qNk0DQ==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.19.0","name":"axios","escapedName":"axios","rawSpec":"^0.19.0","saveSpec":null,"fetchSpec":"^0.19.0"},"_requiredBy":["/contentful"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.19.0.tgz","_shasum":"8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8","_spec":"axios@^0.19.0","_where":"/Users/iclawson/Tech/seniorProject/node_modules/contentful","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"1.5.10","is-buffer":"^2.0.2"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"bundlesize":"^0.17.0","coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.0.2","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^20.1.0","grunt-karma":"^2.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^1.0.18","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^1.3.0","karma-chrome-launcher":"^2.2.0","karma-coverage":"^1.1.1","karma-firefox-launcher":"^1.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-opera-launcher":"^1.0.0","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^1.2.0","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.7","karma-webpack":"^1.7.0","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^5.2.0","sinon":"^4.5.0","typescript":"^2.8.1","url-search-params":"^0.10.0","webpack":"^1.13.1","webpack-dev-server":"^1.14.1"},"homepage":"https://github.com/axios/axios","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test && bundlesize","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","version":"0.19.0"};
+module.exports = {"_args":[["axios@0.19.0","/Users/garretthafen/Documents/GitHub/seniorProject"]],"_from":"axios@0.19.0","_id":"axios@0.19.0","_inBundle":false,"_integrity":"sha512-1uvKqKQta3KBxIz14F2v06AEHZ/dIoeKfbTRkK1E5oqjDnuEerLmYTgJB5AiQZHJcljpg1TuRzdjDR06qNk0DQ==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.19.0","name":"axios","escapedName":"axios","rawSpec":"0.19.0","saveSpec":null,"fetchSpec":"0.19.0"},"_requiredBy":["/","/contentful","/contentful-management"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.19.0.tgz","_spec":"0.19.0","_where":"/Users/garretthafen/Documents/GitHub/seniorProject","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"1.5.10","is-buffer":"^2.0.2"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"bundlesize":"^0.17.0","coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.0.2","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^20.1.0","grunt-karma":"^2.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^1.0.18","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^1.3.0","karma-chrome-launcher":"^2.2.0","karma-coverage":"^1.1.1","karma-firefox-launcher":"^1.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-opera-launcher":"^1.0.0","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^1.2.0","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.7","karma-webpack":"^1.7.0","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^5.2.0","sinon":"^4.5.0","typescript":"^2.8.1","url-search-params":"^0.10.0","webpack":"^1.13.1","webpack-dev-server":"^1.14.1"},"homepage":"https://github.com/axios/axios","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test && bundlesize","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","version":"0.19.0"};
 
 /***/ }),
 /* 177 */
@@ -17525,9 +17525,9 @@ var _interopRequireDefault = __webpack_require__(32);
 
 var _regenerator = _interopRequireDefault(__webpack_require__(33));
 
-var _stringify = _interopRequireDefault(__webpack_require__(88));
-
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(36));
+
+var _stringify = _interopRequireDefault(__webpack_require__(88));
 
 var _crypto = __webpack_require__(90);
 
@@ -17536,6 +17536,21 @@ var _keys = __webpack_require__(142);
 var contentfulDelivery = _interopRequireWildcard(__webpack_require__(143));
 
 var contentfulManagement = _interopRequireWildcard(__webpack_require__(324));
+
+console.log("testing the beginning of signUp");
+var statusCode = 200;
+var headers = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "Content-Type"
+};
+
+function response(dataObj) {
+  return {
+    statusCode: statusCode,
+    headers: headers,
+    body: (0, _stringify.default)(dataObj)
+  };
+}
 
 exports.handler =
 /*#__PURE__*/
@@ -17549,6 +17564,16 @@ function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
+            if (!(event.httpMethod !== "POST")) {
+              _context.next = 2;
+              break;
+            }
+
+            return _context.abrupt("return", response({
+              message: "This was not a POST request!"
+            }));
+
+          case 2:
             // instantiate the deliveryClient (client used for querying and displaying content)
             // we will use this to check and see if any users for a given email exist
             deliveryClient = contentfulDelivery.createClient({
@@ -17562,35 +17587,18 @@ function () {
             managementClient = contentfulManagement.createClient({
               // This is the access token for this space. Normally you get the token in the Contentful web app
               accessToken: _keys.CONTENTFUL_MANAGEMENT_ACCESS_TOKEN
-            }); // Only allow POST
+            }); // get the data from the request body
 
-            if (!(event.httpMethod !== "POST")) {
-              _context.next = 4;
-              break;
-            }
-
-            return _context.abrupt("return", {
-              statusCode: 405,
-              body: (0, _stringify.default)({
-                error: "Method not allowed"
-              })
-            });
-
-          case 4:
-            // get the data from the request body
             params = JSON.parse(event.body); // validation; ensure that a email and password are provided, otherwise return error
 
-            if (!(!params.email || !params.password)) {
+            if (!(!params.email || !params.password || !params.firstName || !params.lastName)) {
               _context.next = 7;
               break;
             }
 
-            return _context.abrupt("return", {
-              statusCode: 400,
-              body: (0, _stringify.default)({
-                error: "Must include email and password params"
-              })
-            });
+            return _context.abrupt("return", response({
+              error: "Please fill out all the fields."
+            }));
 
           case 7:
             _context.next = 9;
@@ -17607,12 +17615,9 @@ function () {
               break;
             }
 
-            return _context.abrupt("return", {
-              statusCode: 400,
-              body: (0, _stringify.default)({
-                error: "An account with the provided email already exists."
-              })
-            });
+            return _context.abrupt("return", response({
+              error: "An account with the provided email already exists."
+            }));
 
           case 12:
             _context.t0 = {
@@ -17629,48 +17634,58 @@ function () {
             _context.t3 = {
               "en-US": _context.t2
             };
+            _context.t4 = {
+              "en-US": params.firstName
+            };
+            _context.t5 = {
+              "en-US": params.lastName
+            };
+            _context.t6 = {
+              "en-US": params.approved
+            };
             createInput = {
               userId: _context.t0,
               email: _context.t1,
-              password: _context.t3
+              password: _context.t3,
+              firstName: _context.t4,
+              lastName: _context.t5,
+              approved: _context.t6
             };
-            _context.next = 21;
+            _context.next = 24;
             return managementClient.getSpace(_keys.CONTENTFUL_SPACE_ID);
 
-          case 21:
+          case 24:
             space = _context.sent;
-            _context.next = 24;
+            _context.next = 27;
             return space.getEnvironment("master");
 
-          case 24:
+          case 27:
             environment = _context.sent;
-            _context.next = 27;
+            _context.next = 30;
             return environment.createEntry("testUser", {
               fields: createInput
             });
 
-          case 27:
+          case 30:
             newEntry = _context.sent;
-            _context.next = 30;
+            _context.next = 33;
             return newEntry.publish();
 
-          case 30:
+          case 33:
             _generateToken = (0, _crypto.generateToken)(newEntry.fields.userId["en-US"]), token = _generateToken.token, expiration = _generateToken.expiration;
             userToReturn = {
               userId: newEntry.fields.userId["en-US"],
-              email: newEntry.fields.email["en-US"]
+              email: newEntry.fields.email["en-US"],
+              name: newEntry.fields.firstName["en-US"] + " " + newEntry.fields.lastName["en-US"]
             }; // return info to the user
 
-            return _context.abrupt("return", {
-              statusCode: 200,
-              body: (0, _stringify.default)({
-                user: userToReturn,
-                token: token,
-                expiration: expiration
-              })
-            });
+            return _context.abrupt("return", response({
+              user: userToReturn,
+              token: token,
+              expiration: expiration
+            }));
 
-          case 33:
+          case 36:
           case "end":
             return _context.stop();
         }

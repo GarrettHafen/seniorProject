@@ -7,6 +7,8 @@ import {
 import * as contentfulDelivery from "contentful";
 import * as contentfulManagement from "contentful-management";
 
+console.log("testing the beginning of signUp");
+
 const statusCode = 200;
 const headers = {
   "Access-Control-Allow-Origin": "*",
@@ -52,9 +54,9 @@ exports.handler = async event => {
   const params = JSON.parse(event.body);
 
   // validation; ensure that a email and password are provided, otherwise return error
-  if (!params.email || !params.password) {
+  if (!params.email || !params.password || !params.firstName || !params.lastName) {
     return response({
-      error: "Must include email and password params"
+      error: "Please fill out all the fields."
     });
   }
 
@@ -76,7 +78,10 @@ exports.handler = async event => {
   const createInput = {
     userId: { "en-US": createId() },
     email: { "en-US": params.email },
-    password: { "en-US": await hashString(params.password, 10) }
+    password: { "en-US": await hashString(params.password, 10) },
+    firstName: { "en-US": params.firstName },
+    lastName: { "en-US": params.lastName },
+    approved: { "en-US": params.approved }
   };
 
   // create the user object
@@ -92,7 +97,8 @@ exports.handler = async event => {
 
   const userToReturn = {
     userId: newEntry.fields.userId["en-US"],
-    email: newEntry.fields.email["en-US"]
+    email: newEntry.fields.email["en-US"],
+    name: newEntry.fields.firstName["en-US"] + " " + newEntry.fields.lastName["en-US"]
   };
 
   // return info to the user

@@ -4,12 +4,25 @@ import {
   CONTENTFUL_DELIVERY_ACCESS_TOKEN
 } from "./helpers/keys";
 import * as contentfulDelivery from "contentful";
-
 // Ot looks like with lambdas you'll always want to
 // return a status code of 200, else everything breaks.
 // Same with the headers. So here's a helper function
 // that returns the same format for every return, only
 // the body content differs.
+
+
+//garrett note: can we make a 3rd user "System" who 
+//creates the users instead of Ian Clawson as the author?
+// need to do:
+// redirect to home page (or page they were trying to get to?) upon success
+// create email?? (phase 5)
+
+
+//ideas 
+// insert create contentful into handleSubmit to test calendar logic
+
+
+
 const statusCode = 200;
 const headers = {
   "Access-Control-Allow-Origin": "*",
@@ -51,7 +64,7 @@ exports.handler = async (event, context) => {
   // validation; ensure that a email and password are provided, otherwise return error
   if (!params.email || !params.password) {
     return response({
-      error: "Must include email and password params"
+      error: "Please fill out all the fields."
     });
   }
 
@@ -75,23 +88,32 @@ exports.handler = async (event, context) => {
       error: "Invalid credentials!"
     });
   }
+
   // email is good
-  const contenfulUser = userCheck.items[0];
+  const contentfulUser = userCheck.items[0];
 
   // validation; check and see if the password provided matches the hash saved on the user object
   if (
-    !(await compareStringToHash(params.password, contenfulUser.fields.password))
+    !(await compareStringToHash(params.password, contentfulUser.fields.password))
   ) {
     return response({
       error: "Invalid credentials!"
     });
   }
 
-  let { token, expiration } = generateToken(contenfulUser.fields.id);
+  //if username and password are correct, check for account approval
+  if (contentfulUser.fields.approved === false) {
+    return response({
+      error: "Your account has not been approved."
+    });
+  }
+
+  let { token, expiration } = generateToken(contentfulUser.fields.id);
 
   const userToReturn = {
-    userId: contenfulUser.fields.userId,
-    email: contenfulUser.fields.email
+    userId: contentfulUser.fields.userId,
+    email: contentfulUser.fields.email,
+    name: contentfulUser.fields.firstName + " " + contentfulUser.fields.lastName
   };
 
   // all good; return user
@@ -100,5 +122,6 @@ exports.handler = async (event, context) => {
     user: userToReturn,
     token,
     expiration
+
   });
 };

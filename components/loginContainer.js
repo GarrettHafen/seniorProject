@@ -39,12 +39,13 @@ class Login extends Component {
         password: this.state.form.Password
       })
       .then(res => {
-        console.log(res);
+        if (!res.data.user) {
+          alert(res.data.error + " Please contact an administrator with any questions.");
+        } else {
+          alert("Welcome " + res.data.user.name);
+          localStorage.setItem("authorized", true);
+        }
       })
-      .catch(error => {
-        console.log("this is an error :" + error.res);
-        console.log(JSON.stringify(error));
-      });
   }
 
   handleFieldChange(e) {
@@ -55,7 +56,7 @@ class Login extends Component {
     });
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
   render() {
     return (
