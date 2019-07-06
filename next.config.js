@@ -1,11 +1,6 @@
 const contentful = require("./helpers/contentful");
-const withSass = require("@zeit/next-sass");
 
-module.exports = withSass({
-  SassModules: true,
-  webpack: config => {
-    return config;
-  },
+module.exports = {
   async exportPathMap() {
     var pages = {
       "/": { page: "/" },
@@ -21,4 +16,4 @@ module.exports = withSass({
     });
     return pages;
   }
-});
+};
