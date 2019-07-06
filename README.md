@@ -12,4 +12,4 @@ Current issues:
 - -- calendar has no styling (getting error) 
 - ----- to work on this issue, go to components/fullcalendar.js and uncomment the 3rd line, the scss line. then run 
 - ----- and navigate to localhost:3000/calendar2
-
+- ----- see https://github.com/fullcalendar/fullcalendar-react for a working example of the desired end result
