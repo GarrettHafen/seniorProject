@@ -9,15 +9,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lambda-build": "netlify-lambda build ./lambdas/source/",
     "lambda-dev": "netlify-lambda serve ./lambdas/source/",
-    "start": "cross-env NODE_ENV=dev npm-run-all --parallel dev lambda-dev",
-    "watch": "webpack --watch"
+    "start": "cross-env NODE_ENV=dev npm-run-all --parallel dev lambda-dev"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@fullcalendar/core": "^4.2.0",
     "@fullcalendar/daygrid": "^4.2.0",
-    "@fullcalendar/interaction": "^4.2.0",
     "@fullcalendar/react": "^4.2.0",
     "@fullcalendar/timegrid": "^4.2.0",
     "@zeit/next-css": "^1.0.1",
@@ -44,12 +42,8 @@
     "react-dom": "^16.8.6",
     "react-tackle-box": "^2.1.0",
     "sass": "^1.22.2",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
     "styled-components": "^4.3.1",
-    "uuid": "^3.3.2",
-    "webpack": "^4.35.2",
-    "webpack-cli": "^3.3.5"
+    "uuid": "^3.3.2"
   },
   "babel": {
     "presets": [

@@ -1,8 +1,9 @@
-import TestCalendar from '../components/fullcalendar'
+import FullCalendar from '../components/fullcalendar'
 export default function Home() {
     return (
         <div>
-            <TestCalendar defaultView='dayGridMonth' />
+            <FullCalendar defaultView='dayGridMonth' />
+            <FullCalendar defaultView='timeGridWeek' />
         </div>
     )
 }
