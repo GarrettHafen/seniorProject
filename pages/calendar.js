@@ -7,7 +7,6 @@ import BannerImage from "../components/bannerImage";
 import H1 from "../components/header";
 import Head from "next/head";
 import "!css-loader!../node_modules/react-big-calendar/lib/css/react-big-calendar.css";
-import "!css-loader!../styles/testCalendar.css"
 
 const localizer = momentLocalizer(moment); // or globalizeLocalizer
 const Wrapper = styled.div`

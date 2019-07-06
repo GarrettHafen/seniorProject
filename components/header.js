@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import ListItem from '../components/listItem';
 
 export default props => {
 
