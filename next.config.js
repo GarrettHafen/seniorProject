@@ -1,5 +1,4 @@
 const contentful = require("./helpers/contentful");
-<<<<<<< HEAD
 const withSass = require("@zeit/next-sass");
 const withCss = require("@zeit/next-css");
 const webpack = require("./webpack.config")
@@ -9,10 +8,6 @@ module.exports = withSass(withCss({
     console.log('testing webpack')
     return (config)
   },
-=======
-
-module.exports = {
->>>>>>> parent of 7e6da01... testing for full calendar
   async exportPathMap() {
     var pages = {
       "/": { page: "/" },
@@ -28,8 +23,4 @@ module.exports = {
     });
     return pages;
   }
-<<<<<<< HEAD
 }));
-=======
-};
->>>>>>> parent of 7e6da01... testing for full calendar
