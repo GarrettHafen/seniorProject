@@ -1,10 +1,12 @@
 const contentful = require("./helpers/contentful");
 const withSass = require("@zeit/next-sass");
+const withCss = require("@zeit/next-css");
+const webpack = require("./webpack.config")
 
-module.exports = withSass({
-  SassModules: true,
+module.exports = withSass(withCss({
   webpack: config => {
-    return config;
+    console.log('testing webpack')
+    return (config)
   },
   async exportPathMap() {
     var pages = {
@@ -21,4 +23,4 @@ module.exports = withSass({
     });
     return pages;
   }
-});
+}));
