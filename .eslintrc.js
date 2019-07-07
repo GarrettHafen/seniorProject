@@ -25,7 +25,7 @@ module.exports = {
   rules: {
     "no-console": "off",
     indent: [2, 2, { SwitchCase: 1 }],
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],
     semi: ["error", "always"],
     "space-before-function-paren": 0,

@@ -7,7 +7,6 @@ import {
 import * as contentfulDelivery from "contentful";
 import * as contentfulManagement from "contentful-management";
 
-
 const statusCode = 200;
 const headers = {
   "Access-Control-Allow-Origin": "*",
@@ -53,7 +52,12 @@ exports.handler = async event => {
   const params = JSON.parse(event.body);
 
   // validation; ensure that a email and password are provided, otherwise return error
-  if (!params.email || !params.password || !params.firstName || !params.lastName) {
+  if (
+    !params.email ||
+    !params.password ||
+    !params.firstName ||
+    !params.lastName
+  ) {
     return response({
       error: "Please fill out all the fields."
     });
@@ -73,7 +77,7 @@ exports.handler = async event => {
 
   // TODO: add some kind of email validation???
 
-  // contentful is all about locality, so everything we do will be in 'en-US' by default
+  // contentful is all about locality, so when creating a new item, everything we do will be in 'en-US' by default
   const createInput = {
     userId: { "en-US": createId() },
     email: { "en-US": params.email },
@@ -97,7 +101,10 @@ exports.handler = async event => {
   const userToReturn = {
     userId: newEntry.fields.userId["en-US"],
     email: newEntry.fields.email["en-US"],
-    name: newEntry.fields.firstName["en-US"] + " " + newEntry.fields.lastName["en-US"]
+    name:
+      newEntry.fields.firstName["en-US"] +
+      " " +
+      newEntry.fields.lastName["en-US"]
   };
 
   // return info to the user
