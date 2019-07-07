@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Button from "../components/button";
 import axios from "../helpers/axios";
+import Router from "next/router";
 
 const LoginContainer = styled.form`
   height: 300px;
@@ -44,6 +45,7 @@ class Login extends Component {
         } else {
           alert("Welcome " + res.data.user.name);
           localStorage.setItem("authorized", true);
+          localStorage.setItem("userID", res.data.user.userId)
           Router.push("/");
         }
       })

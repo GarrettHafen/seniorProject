@@ -8,14 +8,14 @@ import Nav from "../components/nav";
 import BannerImage from "../components/bannerImage";
 import H1 from "../components/header";
 import Head from "next/head";
-import "!css-loader!../node_modules/react-big-calendar/lib/css/react-big-calendar.css";
+//import "!css-loader!../node_modules/react-big-calendar/lib/css/react-big-calendar.css";
 import Break from "../components/break";
 import CalendarForm from "../components/calendarFormContainer";
 
 //----------toDo-------
 // import their name from login
 
-const localizer = momentLocalizer(moment); // or globalizeLocalizer
+const localizer = momentLocalizer(moment);
 const Wrapper = styled.div`
   height: 2000px;
 `;
@@ -67,6 +67,7 @@ export default class Home extends Component {
             <Head>
               <link rel="stylesheet" href="/static/base.css" />
               <link href="/static/calendar.css" rel="stylesheet" />
+              <link href="/static/calendarPicker.css" rel="stylesheet" />
             </Head>
             <Nav />
             <BannerImage
@@ -92,8 +93,8 @@ export default class Home extends Component {
             <Break src="hr-fourwheeler.png" />
           </Wrapper>
         ) : (
-          <div />
-        )}
+            <div />
+          )}
       </main>
     );
   }
