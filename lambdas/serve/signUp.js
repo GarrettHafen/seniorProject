@@ -17537,7 +17537,6 @@ var contentfulDelivery = _interopRequireWildcard(__webpack_require__(143));
 
 var contentfulManagement = _interopRequireWildcard(__webpack_require__(324));
 
-console.log("testing the beginning of signUp");
 var statusCode = 200;
 var headers = {
   "Access-Control-Allow-Origin": "*",

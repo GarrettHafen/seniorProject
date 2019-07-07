@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from 'styled-components';
 import Button from "../components/button";
 import axios from "../helpers/axios";
+import Router from "next/router";
 
 const SignupContainer = styled.form`
 height: 300px;
@@ -48,6 +49,7 @@ class SignUp extends Component {
                     alert("Thank you " + res.data.user.name +
                         ". You will receive an email when your account has been approved." +
                         " Please contact an administrator with any questions.");
+                    Router.push("/");
                 }
             })
     }

@@ -44,6 +44,7 @@ class Login extends Component {
         } else {
           alert("Welcome " + res.data.user.name);
           localStorage.setItem("authorized", true);
+          Router.push("/");
         }
       })
   }

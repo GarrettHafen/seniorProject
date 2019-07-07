@@ -7,7 +7,6 @@ import {
 import * as contentfulDelivery from "contentful";
 import * as contentfulManagement from "contentful-management";
 
-console.log("testing the beginning of signUp");
 
 const statusCode = 200;
 const headers = {

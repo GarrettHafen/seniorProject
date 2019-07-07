@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 import { Calendar, momentLocalizer, Views } from "react-big-calendar";
 import moment from "moment";
 import contentful from '../helpers/contentful';
@@ -7,6 +8,12 @@ import BannerImage from "../components/bannerImage";
 import H1 from "../components/header";
 import Head from "next/head";
 import "!css-loader!../node_modules/react-big-calendar/lib/css/react-big-calendar.css";
+import Break from '../components/break'
+import CalendarForm from '../components/calendarFormContainer'
+
+
+//----------toDo-------
+// import their name from login
 
 const localizer = momentLocalizer(moment); // or globalizeLocalizer
 const Wrapper = styled.div`
@@ -17,66 +24,94 @@ const CalWrapper = styled.div`
   display: block;
   margin: auto;
 `;
-const myEventsList = [
-  {
-    title: "test",
-    start: new Date(),
-    end: new Date(),
-    allDay: true
-  },
-  {
-    title: "longTest",
-    start: new Date(2019, 6, 8),
-    end: new Date(2019, 6, 11),
-    allDay: true
-  },
-  {
-    title: "anotherTest",
-    start: new Date(2019, 6, 10),
-    end: new Date(2019, 6, 10),
-    allDay: true
+export default class Home extends Component {
+  constructor() {
+    super()
+    this.state = {
+      loading: true
+    }
   }
-];
 
-const Home = props => {
-  //console.log(_.calendarItems[0].fields.fullName);
-  return (
-    <Wrapper>
-      <Head>
-        <link rel="stylesheet" href="/static/base.css" />
-        <link href="/static/calendar.css" rel="stylesheet" />
-      </Head>
-      <Nav />
-      <BannerImage
-        src="../static/bannerImageStorm.png"
-        alt="Stormy Image"
-        width="1704px"
-      />
-      <H1 content="Calendar" />
-      <CalWrapper>
-        <Calendar
-          localizer={localizer}
-          events={myEventsList}
-          startAccessor="start"
-          endAccessor="end"
-          defaultView={Views.MONTH}
-          defaultDate={new Date()}
-          views={["month"]}
-        />
-      </CalWrapper>
-    </Wrapper>
-  )
+  async componentDidMount() {
+    const calendarContent = await contentful.query({ 'content_type': "calendar" });
+
+    const Security = localStorage.getItem("authorized");
+    if (!Security) {
+      alert("Please Sign In");
+      Router.push("/");
+    }
+    const calendarItemsArray = [];
+    for (let i = 0; i < calendarContent.items[0].fields.calendarItems.length; i++) {
+      calendarItemsArray.push(calendarContent.items[0].fields.calendarItems[i]).fields;
+    };
+
+    const myEventsList = [
+    ]
+    for (let i = 0; i < calendarItemsArray.length; i++) {
+      myEventsList.push(
+        {
+          title: calendarItemsArray[i].fields.fullName,
+          startDate: new Date(calendarItemsArray[i].fields.startDate),
+          endDate: new Date(calendarItemsArray[i].fields.endDate),
+          allDay: true
+        }
+      )
+    }
+
+    this.setState({ loading: false, content: calendarContent.items[0].fields, eventsList: myEventsList })
+    // console.log(calendarContent.items[0].fields.calendarItems[0])
+    // console.log(calendarContent.items[0])
+    // console.log(calendarItemsArray)
+    //console.log(myEventsList)
+  }
+  render() {
+    return (
+      <main>
+        {!this.state.loading ? (
+          <Wrapper>
+            <Head>
+              <link rel="stylesheet" href="/static/base.css" />
+              <link href="/static/calendar.css" rel="stylesheet" />
+            </Head>
+            <Nav />
+            <BannerImage
+              src="../static/bannerImageStorm.png"
+              alt="Stormy Image"
+              width="1704px"
+            />
+            <H1 content="Calendar" />
+            <CalendarForm>
+
+            </CalendarForm>
+            <Break
+              src="hr-tumbleweed.png"
+            />
+            <CalWrapper>
+              <Calendar
+                localizer={localizer}
+                events={this.state.eventsList}
+                startAccessor="startDate"
+                endAccessor="endDate"
+                defaultView={Views.MONTH}
+                defaultDate={new Date()}
+                views={["month"]}
+              />
+            </CalWrapper>
+
+            <Break
+              src="hr-fourwheeler.png"
+            />
+
+
+          </Wrapper>
+        ) : <div></div>}
+      </main>
+    )
+  }
 }
-
-Home.getInitialProps = async ({ asPath }) => {
-  const res = await contentful.query({
-    content_type: "calendar",
-    "fields.pageUrl": asPath.split("/")[1]
-
-  });
-
-  return {
-    content: res.items[0].fields
-  };
-};
-export default Home;
+//  {
+//     title: "test",
+//     start: new Date(),
+//     end: new Date(),
+//     allDay: true
+//   },
