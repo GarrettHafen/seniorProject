@@ -20,7 +20,7 @@ const CalendarFormContainer = styled.form`
   align-content: left;
 `;
 const LoginLabel = styled.label`
-  margin: 15px 0 5px;
+  margin: 20px 0 5px;
   font-size: 1.3em;
 `;
 const LoginPiece = styled.input`
