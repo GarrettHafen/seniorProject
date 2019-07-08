@@ -42,6 +42,9 @@ export default class Home extends Component {
     const calendarItems = await contentful.query({
       content_type: "calendarItem"
     });
+    const disclaimer = await contentful.query({
+      content_type: "disclaimer"
+    });
 
     const calendarItemsArray = calendarItems.items;
     const myEventsList = [];
@@ -56,8 +59,10 @@ export default class Home extends Component {
     this.setState({
       loading: false,
       // content: calendarContent.items[0].fields, // IAN NOTE: didn't know if this was needed
-      eventsList: myEventsList
+      eventsList: myEventsList,
+      disclaimer: disclaimer
     });
+    console.log(disclaimer);
   }
   render() {
     return (
@@ -68,7 +73,10 @@ export default class Home extends Component {
               <link rel="stylesheet" href="/static/base.css" />
               <link href="/static/calendar.css" rel="stylesheet" />
               <link href="/static/calendarPicker.css" rel="stylesheet" />
-              <link href="https://fonts.googleapis.com/css?family=Rye&display=swap" rel="stylesheet" />
+              <link
+                href="https://fonts.googleapis.com/css?family=Rye&display=swap"
+                rel="stylesheet"
+              />
             </Head>
             <Nav />
             <BannerImage
@@ -78,6 +86,9 @@ export default class Home extends Component {
             />
             <H1 content="Calendar" />
             <CalendarForm />
+            <Disclaimer>
+              {this.state.disclaimer.fields.disclaimerText}
+            </Disclaimer>
             <Break src="hr-tumbleweed.png" />
             <CalWrapper>
               <Calendar
@@ -90,12 +101,11 @@ export default class Home extends Component {
                 views={["month"]}
               />
             </CalWrapper>
-
             <Break src="hr-fourwheeler.png" />
           </Wrapper>
         ) : (
-            <div />
-          )}
+          <div />
+        )}
       </main>
     );
   }
