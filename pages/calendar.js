@@ -24,6 +24,12 @@ const CalWrapper = styled.div`
   display: block;
   margin: auto;
 `;
+const Disclaimer = styled.div`
+  width: 25%;
+  margin:auto;
+  color: grey;
+  font-size: .9em;
+`
 export default class Home extends Component {
   constructor() {
     super();
@@ -62,7 +68,7 @@ export default class Home extends Component {
       eventsList: myEventsList,
       disclaimer: disclaimer
     });
-    console.log(disclaimer);
+    //console.log(disclaimer.items[0].fields.disclaimerText);
   }
   render() {
     return (
@@ -87,7 +93,7 @@ export default class Home extends Component {
             <H1 content="Calendar" />
             <CalendarForm />
             <Disclaimer>
-              {this.state.disclaimer.fields.disclaimerText}
+              Note: {this.state.disclaimer.items[0].fields.disclaimerText}
             </Disclaimer>
             <Break src="hr-tumbleweed.png" />
             <CalWrapper>
@@ -104,8 +110,8 @@ export default class Home extends Component {
             <Break src="hr-fourwheeler.png" />
           </Wrapper>
         ) : (
-          <div />
-        )}
+            <div />
+          )}
       </main>
     );
   }
