@@ -11,21 +11,22 @@ import * as contentfulManagement from "contentful-management";
 import DatePicker from "react-datepicker";
 import "!css-loader!../node_modules/react-datepicker/dist/react-datepicker.css";
 
-const SignupContainer = styled.form`
-  height: 300px;
-  width: 75%;
-  margin: 50px auto;
+const CalendarFormContainer = styled.form`
+  height: 450px;
+  width: 25%;
+  margin: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-content: left;
 `;
 const LoginLabel = styled.label`
-  margin: 15px;
+  margin: 15px 0 5px;
   font-size: 1.3em;
 `;
 const LoginPiece = styled.input`
   height: 35px;
   border-radius: 5px;
-  margin-top: 7px;
+  margin: 0 ;
   padding-left: 5px;
 `;
 
@@ -102,7 +103,7 @@ class CalendarForm extends Component {
 
     render() {
         return (
-            <SignupContainer
+            <CalendarFormContainer
                 onSubmit={e => {
                     this.handleSubmit(e);
                 }}
@@ -152,7 +153,7 @@ class CalendarForm extends Component {
                     type="text"
                 />
                 <Button type="submit" name="Sign Up" />
-            </SignupContainer>
+            </CalendarFormContainer>
         );
     }
 }

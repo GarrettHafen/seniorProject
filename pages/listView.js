@@ -5,8 +5,9 @@ import BannerImage from "../components/bannerImage";
 import Head from "next/head";
 import H1 from "../components/header";
 import ListItems from "../components/listItems";
-import styled from "styled-components";
 import Router from "next/router";
+import styled from "styled-components"
+import Break from "../components/break"
 
 const Wrapper = styled.div``;
 
@@ -46,14 +47,17 @@ export default class Home extends Component {
                     <Wrapper>
                         <Head>
                             <link rel="stylesheet" href="/static/base.css" />
+                            <link href="https://fonts.googleapis.com/css?family=Rye&display=swap" rel="stylesheet" />
+
                         </Head>
                         <Nav />
                         <BannerImage
                             src="../static/bannerImageStorm.png"
                             alt="Stormy Image"
-                            width="1704px"
+                            width="100%"
                         />
                         {this.state.content.listViewHeader && <H1 content={this.state.content.listViewHeader} />}
+                        <Break src="hr-horse.png" />
 
                         {this.state.listViewItems && this.state.listViewItems.map((listViewItem, index) => {
                             if (index % 2 === 0) {
@@ -62,25 +66,27 @@ export default class Home extends Component {
                                         name={this.state.content.listViewItem[index].fields.listViewElementName}
                                         desc={this.state.content.listViewItem[index].fields.listViewElementDescription}
                                         img={this.state.content.listViewItem[index].fields.listViewElementImage.fields.file.url}
-                                        bgColor="#6B853E"
+                                        bgColor="rgba(107, 133, 62,.45)"
                                         row="row-reverse"
                                         textDirection="right"
                                     />
                                 )
+                                //if mod 5, then insert a break. only if you hvae more than like 15 objects. 
+
                             } else {
                                 return (
                                     <ListItems
                                         name={this.state.content.listViewItem[index].fields.listViewElementName}
                                         desc={this.state.content.listViewItem[index].fields.listViewElementDescription}
                                         img={this.state.content.listViewItem[index].fields.listViewElementImage.fields.file.url}
-                                        bgColor="#558792"
+                                        bgColor="rgba(85, 135, 146,.45)"
                                         row="row"
                                         textDirection="left"
                                     />
                                 )
                             }
                         })}
-
+                        <Break src="hr-train.png" />
                     </Wrapper >
                 ) : <div></div>}
             </main>

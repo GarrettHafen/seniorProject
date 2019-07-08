@@ -28,8 +28,10 @@ module.exports = withCSS(withSCSS({
       "/": { page: "/" },
       "/login": { page: "/login" },
       "/signup": { page: "/signup" },
-      "/calendar2": { page: "/calendar2" }
-    };
+      "/calendar": { page: "/calendar" },
+      "/404": { page: "/404" }
+    }
+
     const listView = await contentful.query({ content_type: "listView" });
     listView.items.map(locale => {
       return Object.assign(pages, {

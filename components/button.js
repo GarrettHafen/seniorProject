@@ -9,7 +9,8 @@ export default props => {
     background-color: #6d5e41;
     color: #e1e1da;
     cursor: pointer;
-    margin: 15px;
+    margin: 15px 5px;
+    padding: 5px;
     &:focus {
       outline: 0;
     }

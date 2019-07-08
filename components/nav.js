@@ -31,9 +31,9 @@ const logoStyle = {
 
 export default props => (
     <Nav>
-        <UL> 
-            <LI 
-                src='gallery.js'
+        <UL>
+            <LI
+                src='/404'
                 title="Gallery"
             />
             <LI

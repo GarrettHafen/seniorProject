@@ -68,12 +68,13 @@ export default class Home extends Component {
               <link rel="stylesheet" href="/static/base.css" />
               <link href="/static/calendar.css" rel="stylesheet" />
               <link href="/static/calendarPicker.css" rel="stylesheet" />
+              <link href="https://fonts.googleapis.com/css?family=Rye&display=swap" rel="stylesheet" />
             </Head>
             <Nav />
             <BannerImage
               src="../static/bannerImageStorm.png"
               alt="Stormy Image"
-              width="1704px"
+              width="100%"
             />
             <H1 content="Calendar" />
             <CalendarForm />

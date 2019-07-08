@@ -12,8 +12,9 @@ export default props => {
     text-decoration: none;
     color: #E1E1DA;
     text-transform: uppercase; 
-    font-size: 2.5em;
+    font-size: 2em;
     text-shadow: 2px 2px 12px black, 2px 2px 12px black;  
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
     :hover {
         color: #E1E1DA;
         background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url('../static/${props.image}');
@@ -21,7 +22,7 @@ export default props => {
 `
 
     const TileInside = styled.div`
-        padding-top: 15%;
+        padding-top: 20%;
     `
    
     return(

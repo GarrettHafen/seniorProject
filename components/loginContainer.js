@@ -5,22 +5,29 @@ import axios from "../helpers/axios";
 import Router from "next/router";
 
 const LoginContainer = styled.form`
-  height: 300px;
-  width: 75%;
-  margin: 50px auto;
+  height: 250px;
+  width: 25%;
+  margin: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 `;
 const LoginLabel = styled.label`
-  margin: 15px;
+  margin: 15px 0;
   font-size: 1.3em;
 `;
 const LoginPiece = styled.input`
   height: 35px;
   border-radius: 5px;
-  margin-top: 7px;
+  margin: 0 ;
   padding-left: 5px;
 `;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin-left: -5px;
+`
 
 class Login extends Component {
   constructor(props) {
@@ -86,7 +93,10 @@ class Login extends Component {
           name="Password"
           type="password"
         />
-        <Button type="submit" name="Login!" />
+        <ButtonWrapper>
+          <Button type="submit" name="Login!" />
+          <Button url="/signup" name="Sign Up" type="button" />
+        </ButtonWrapper>
       </LoginContainer>
     );
   }

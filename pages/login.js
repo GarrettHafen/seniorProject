@@ -9,6 +9,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import LoginContainerForm from "../components/loginContainer";
 import Button from "../components/button";
+import Break from "../components/break"
 
 const Wrapper = styled.div`
   width: 100%;
@@ -19,26 +20,28 @@ const Warning = styled.div`
   color: red;
   text-align: center;
 `;
+const ButtonWrapper = styled.div`
+  width: 25%;
+  margin: auto;
+`
 
 const Login = () => {
   return (
     <Wrapper>
       <Head>
         <link rel="stylesheet" href="/static/base.css" />
+        <link href="https://fonts.googleapis.com/css?family=Rye&display=swap" rel="stylesheet" />
       </Head>
       <Nav />
       <BannerImage
         src="../static/bannerImageStorm.png"
         alt="Stormy Image"
-        width="1704px"
+        width="100%"
       />
       <H1 content="Login" />
-      <Warning>
-        For development purposes, do not use your regular password. Site is
-        unsecure.
-      </Warning>
+      <Break src="hr-fourwheeler.png" />
       <LoginContainerForm />
-      <Button url="/signup" name="Sign Up" />
+      <Break src="hr-horse.png" />
     </Wrapper>
   );
 };
