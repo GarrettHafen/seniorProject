@@ -1,3 +1,8 @@
 [build]
   command = "npm run deploy"
   functions = "lambdas/serve"
+
+[context.production]
+  publish = "project/output/"
+  command = "make publish"
+  environment = { NODE_ENV="production", AXIOS_URL="https://hrfamilyranch.netlify.com/.netlify/functions/" }
