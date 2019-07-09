@@ -45,7 +45,7 @@ export default class Home extends Component {
     });
     //console.log(window.location.href.split('/').pop())
     //console.log(listView.items)
-    //console.log(listArray)
+    console.log(this.state.content.listViewItem[1].fields.pageUrl);
   }
   render() {
     return (

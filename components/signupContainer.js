@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import Button from "../components/button";
 import axios from "../helpers/axios";
 import Router from "next/router";
@@ -19,7 +19,7 @@ const LoginLabel = styled.label`
 const LoginPiece = styled.input`
   height: 35px;
   border-radius: 5px;
-  margin: 0 ;
+  margin: 0;
   padding-left: 5px;
 `;
 const ButtonWrapper = styled.div`
@@ -27,103 +27,106 @@ const ButtonWrapper = styled.div`
   flex-direction: row;
   justify-content: left;
   margin-left: -5px;
-`
+`;
 
 class SignUp extends Component {
-    constructor(props) {
-        super();
-        this.state = { form: {} };
+  constructor(props) {
+    super();
+    this.state = { form: {} };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleFieldChange = this.handleFieldChange.bind(this);
-    }
-    handleSubmit(e) {
-        e.preventDefault();
-        var approvedTest = false;
-        //console.log(this.state.form.Email);
-        axios()
-            .post("/signUp", {
-                email: this.state.form.Email,
-                password: this.state.form.Password,
-                firstName: this.state.form.firstName,
-                lastName: this.state.form.lastName,
-                approved: approvedTest
-            })
-            .then(res => {
-                if (!res.data.user) {
-                    alert(res.data.error + " Please contact an administrator with any questions.");
-                } else {
-                    alert("Thank you " + res.data.user.name +
-                        ". You will receive an email when your account has been approved." +
-                        " Please contact an administrator with any questions.");
-                    Router.push("/");
-                }
-            })
-    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFieldChange = this.handleFieldChange.bind(this);
+  }
+  handleSubmit(e) {
+    e.preventDefault();
+    var approvedTest = false;
+    //console.log(this.state.form.Email);
+    axios()
+      .post("/signUp", {
+        email: this.state.form.Email,
+        password: this.state.form.Password,
+        firstName: this.state.form.firstName,
+        lastName: this.state.form.lastName,
+        approved: approvedTest
+      })
+      .then(res => {
+        if (!res.data.user) {
+          alert(
+            res.data.error +
+              " Please contact an administrator with any questions."
+          );
+        } else {
+          alert(
+            "Thank you " +
+              res.data.user.name +
+              ". You will receive an email when your account has been approved." +
+              " Please contact an administrator with any questions."
+          );
+          Router.push("/");
+        }
+      });
+  }
 
-    handleFieldChange(e) {
-        var form = this.state.form;
-        form[e.target.name] = e.target.value;
-        this.setState({ form: form }, () => {
-            //console.log(this.state.form);
-        });
-    }
+  handleFieldChange(e) {
+    var form = this.state.form;
+    form[e.target.name] = e.target.value;
+    this.setState({ form: form }, () => {
+      //console.log(this.state.form);
+    });
+  }
 
-    componentDidMount() { }
+  componentDidMount() {}
 
-
-    render() {
-        return (
-            <SignupContainer
-                onSubmit={e => {
-                    this.handleSubmit(e);
-                }}
-            >
-                <LoginLabel>First Name: </LoginLabel>
-                <LoginPiece
-                    onChange={e => {
-                        this.handleFieldChange(e);
-                    }}
-                    value={this.state.form.firstName}
-                    name="firstName"
-                    type="text"
-                >
-                </LoginPiece>
-                <LoginLabel>Last Name: </LoginLabel>
-                <LoginPiece
-                    onChange={e => {
-                        this.handleFieldChange(e);
-                    }}
-                    value={this.state.form.lastName}
-                    name="lastName"
-                    type="text"
-                ></LoginPiece>
-                <LoginLabel>Email: </LoginLabel>
-                <LoginPiece
-                    onChange={e => {
-                        this.handleFieldChange(e);
-                    }}
-                    value={this.state.form.Email}
-                    name="Email"
-                    type="email"
-                ></LoginPiece>
-                <LoginLabel>Password: </LoginLabel>
-                <LoginPiece
-                    onChange={e => {
-                        this.handleFieldChange(e);
-                    }}
-                    value={this.state.form.Password}
-                    name="Password"
-                    type="password"
-                >
-                </LoginPiece>
-                <ButtonWrapper>
-                    <Button type="submit" name="Login!" />
-                    <Button url="/signup" name="Sign Up" type="button" />
-                </ButtonWrapper>
-            </SignupContainer>
-        )
-    }
+  render() {
+    return (
+      <SignupContainer
+        onSubmit={e => {
+          this.handleSubmit(e);
+        }}
+      >
+        <LoginLabel>First Name: </LoginLabel>
+        <LoginPiece
+          onChange={e => {
+            this.handleFieldChange(e);
+          }}
+          value={this.state.form.firstName}
+          name="firstName"
+          type="text"
+        />
+        <LoginLabel>Last Name: </LoginLabel>
+        <LoginPiece
+          onChange={e => {
+            this.handleFieldChange(e);
+          }}
+          value={this.state.form.lastName}
+          name="lastName"
+          type="text"
+        />
+        <LoginLabel>Email: </LoginLabel>
+        <LoginPiece
+          onChange={e => {
+            this.handleFieldChange(e);
+          }}
+          value={this.state.form.Email}
+          name="Email"
+          type="email"
+        />
+        <LoginLabel>Password: </LoginLabel>
+        <LoginPiece
+          onChange={e => {
+            this.handleFieldChange(e);
+          }}
+          value={this.state.form.Password}
+          name="Password"
+          type="password"
+        />
+        <ButtonWrapper>
+          <Button type="submit" name="Signup!" />
+          <Button url="/login" name="Login" type="button" />
+        </ButtonWrapper>
+      </SignupContainer>
+    );
+  }
 }
 
 export default SignUp;
