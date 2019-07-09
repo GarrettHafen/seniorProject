@@ -26,10 +26,10 @@ const CalWrapper = styled.div`
 `;
 const Disclaimer = styled.div`
   width: 25%;
-  margin:auto;
+  margin: auto;
   color: grey;
-  font-size: .9em;
-`
+  font-size: 0.9em;
+`;
 export default class Home extends Component {
   constructor() {
     super();
@@ -105,13 +105,14 @@ export default class Home extends Component {
                 defaultView={Views.MONTH}
                 defaultDate={new Date()}
                 views={["month"]}
+                popup={true}
               />
             </CalWrapper>
             <Break src="hr-fourwheeler.png" />
           </Wrapper>
         ) : (
-            <div />
-          )}
+          <div />
+        )}
       </main>
     );
   }

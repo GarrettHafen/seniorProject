@@ -5,7 +5,7 @@ import Break from "../components/break";
 import Head from "next/head";
 import Tile from "../components/tiles";
 import Instructions from "../components/instructions";
-import Third from "../components/third"
+import Third from "../components/third";
 import styled from "styled-components";
 import H1 from "../components/header";
 
@@ -60,20 +60,24 @@ const smallSection = {
 };
 const Wrapper = styled.div`
   max-width: 1440px;
-`
+  margin: auto;
+`;
 const Bottom = styled.div`
   width: 100%
   display: flex
   flex-direction: row;
   justify-content: space-evenly
-`
+`;
 
 const Home = () => {
   return (
     <Wrapper>
       <Head>
         <link rel="stylesheet" href="/static/base.css" />
-        <link href="https://fonts.googleapis.com/css?family=Rye&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css?family=Rye&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Nav />
       <BannerImage
@@ -81,9 +85,7 @@ const Home = () => {
         alt="Stormy Image"
         width="100%"
       />
-      <H1
-        content="Herschel &amp; Ramona Family Ranch"
-      />
+      <H1 content="Herschel &amp; Ramona Family Ranch" />
       <Break src="hr-train.png" />
       <BannerImage
         src="../static/carouselMist.png"
@@ -126,18 +128,18 @@ const Home = () => {
           <Instructions />
         </div>
         <div style={middle} className="middle">
-          <Tile src="wildlife.js" title="Wildlife" image="horses.png" />
-          <Tile src="family-history" title="Family History" image="corgi.png" />
-          <Tile src="buildings" title="Buildings" image="pond.png" />
+          <Tile src="/wildlife" title="Wildlife" image="horses.png" />
+          <Tile
+            src="/family-history"
+            title="Family History"
+            image="corgi.png"
+          />
+          <Tile src="/buildings" title="Buildings" image="pond.png" />
         </div>
         <div style={right} className="right">
           <Tile src="/404" title="Work Projects" image="river.png" />
           <Tile src="/404" title="Donations" image="clouds.png" />
-          <Tile
-            src="/404"
-            title="Privacy Policy"
-            image="road.png"
-          />
+          <Tile src="/404" title="Privacy Policy" image="road.png" />
         </div>
       </Bottom>
     </Wrapper>
