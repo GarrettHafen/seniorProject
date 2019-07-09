@@ -2,3 +2,8 @@
   command = "npm run deploy"
   functions = "lambdas/serve"
   environment = { NODE_ENV="production", AXIOS_URL="https://hrfamilyranch.netlify.com/.netlify/functions/" }
+
+  [[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
