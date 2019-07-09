@@ -18,7 +18,7 @@ const LoginLabel = styled.label`
 const LoginPiece = styled.input`
   height: 35px;
   border-radius: 5px;
-  margin: 0 ;
+  margin: 0;
   padding-left: 5px;
 `;
 
@@ -27,7 +27,7 @@ const ButtonWrapper = styled.div`
   flex-direction: row;
   justify-content: left;
   margin-left: -5px;
-`
+`;
 
 class Login extends Component {
   constructor(props) {
@@ -48,14 +48,17 @@ class Login extends Component {
       })
       .then(res => {
         if (!res.data.user) {
-          alert(res.data.error + " Please contact an administrator with any questions.");
+          alert(
+            res.data.error +
+              " Please contact an administrator with any questions."
+          );
         } else {
           alert("Welcome " + res.data.user.name);
           localStorage.setItem("authorized", true);
-          localStorage.setItem("userID", res.data.user.userId)
+          localStorage.setItem("userID", res.data.user.userId);
           Router.push("/");
         }
-      })
+      });
   }
 
   handleFieldChange(e) {
@@ -66,7 +69,11 @@ class Login extends Component {
     });
   }
 
-  componentDidMount() { }
+  componentDidMount() {
+    console.log("process.env.AXIOS_URL:", process.env.AXIOS_URL);
+    console.log("process.env.AXIOS_URL:", process.env.AXIOS_URL);
+    console.log("process.env.AXIOS_URL:", process.env.AXIOS_URL);
+  }
 
   render() {
     return (
