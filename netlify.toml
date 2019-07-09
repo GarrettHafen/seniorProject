@@ -1,4 +1,3 @@
 [build]
   command = "npm run deploy"
   functions = "lambdas/serve"
-  publish = "lambdas/serve" 
