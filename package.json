@@ -26,6 +26,8 @@
     "contentful-management": "^5.9.0",
     "cross-env": "^5.2.0",
     "css-loader": "^3.0.0",
+    "dotenv": "^8.0.0",
+    "dotenv-webpack": "^1.7.0",
     "eslint": "^6.0.1",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-react": "^7.14.2",

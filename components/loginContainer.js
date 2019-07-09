@@ -69,11 +69,7 @@ class Login extends Component {
     });
   }
 
-  componentDidMount() {
-    console.log("process.env.AXIOS_URL:", process.env.AXIOS_URL);
-    console.log("process.env.AXIOS_URL:", process.env.AXIOS_URL);
-    console.log("process.env.AXIOS_URL:", process.env.AXIOS_URL);
-  }
+  componentDidMount() {}
 
   render() {
     return (
