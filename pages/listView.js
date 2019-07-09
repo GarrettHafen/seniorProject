@@ -115,6 +115,7 @@ export default class Home extends Component {
                       row="row"
                       textDirection="left"
                       url={
+                        "/" +
                         this.state.content.listViewItem[index].fields.pageUrl
                       }
                     />
