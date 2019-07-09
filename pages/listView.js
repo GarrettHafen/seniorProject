@@ -45,7 +45,7 @@ export default class Home extends Component {
     });
     //console.log(window.location.href.split('/').pop())
     //console.log(listView.items)
-    console.log(this.state.content.listViewItem[1].fields.pageUrl);
+    //console.log(this.state.content.listViewItem[1].fields.pageUrl);
   }
   render() {
     return (
@@ -91,6 +91,7 @@ export default class Home extends Component {
                       row="row-reverse"
                       textDirection="right"
                       url={
+                        "/" +
                         this.state.content.listViewItem[index].fields.pageUrl
                       }
                     />
