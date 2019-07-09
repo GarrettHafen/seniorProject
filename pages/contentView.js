@@ -28,23 +28,24 @@ export default class Home extends Component {
       content_type: "contentView",
       "fields.pageUrl": window.location.href.split("/").pop()
     });
-    // const Security = localStorage.getItem("authorized");
-    // if (!Security) {
-    //     alert("Please Sign In");
-    //     Router.push("/");
-    // }
-    // const arrayLength = listView.items[0].fields.listViewItem.length;
-    // const listArray = [];
-
-    // for (let i = 0; i < listView.items[0].fields.listViewItem.length; i++) {
-    //     const holder = i;
-    //     listArray.push(listView.items[0].fields.listViewItem[holder]);
-    // };
-    console.log(
-      contentView.items[0].fields.contentViewSection[0].fields.topImage.fields
-        .file.url
-    );
-    this.setState({ loading: false, content: contentView.items[0].fields });
+    const Security = localStorage.getItem("authorized");
+    if (!Security) {
+      alert("Please Sign In");
+      Router.push("/");
+    }
+    const arrayLength = contentView.items[0].fields.contentViewSection.length;
+    const contentArray = [];
+    //console.log(contentView.items[0].fields.contentViewSection[0]);
+    for (let i = 0; i < arrayLength; i++) {
+      const holder = i;
+      contentArray.push(contentView.items[0].fields.contentViewSection[holder]);
+    }
+    //    console.log(contentView.items[0].fields.contentViewSection[0].fields.topImage.fields.file.url);
+    this.setState({
+      loading: false,
+      content: contentView.items[0].fields,
+      contentViewSections: contentArray
+    });
   }
   render() {
     return (
@@ -68,31 +69,77 @@ export default class Home extends Component {
               <H1 content={this.state.content.contentViewHeader} />
             )}
             <Break src="hr-horse.png" />
-
-            <ContentViewItemWrapper>
-              <TopWrapper
-                sideImageText={
-                  this.state.content.contentViewSection[0].fields.sideImageText
+            {this.state.contentViewSections &&
+              this.state.contentViewSections.map(
+                (contentViewSection, index) => {
+                  console.log("index = " + index);
+                  if (index % 2 === 0) {
+                    return (
+                      <ContentViewItemWrapper>
+                        <TopWrapper
+                          sideImageText={
+                            this.state.content.contentViewSection[index].fields
+                              .sideImageText
+                          }
+                          topImage={
+                            this.state.content.contentViewSection[index].fields
+                              .topImage.fields.file.url
+                          }
+                          topImageAlt={
+                            this.state.content.contentViewSection[index].fields
+                              .topImageAlt
+                          }
+                          bottomText={
+                            this.state.content.contentViewSection[index].fields
+                              .bottomText
+                          }
+                          rowDirection="row-reverse"
+                        />
+                        <Break src="hr-tumbleweed.png" />
+                        <BottomWrapper
+                          SingleImages={
+                            this.state.content.contentViewSection[index].fields
+                              .singleImages
+                          }
+                        />
+                        <Break src="hr-fishy.png" />
+                      </ContentViewItemWrapper>
+                    );
+                  } else {
+                    return (
+                      <ContentViewItemWrapper>
+                        <TopWrapper
+                          sideImageText={
+                            this.state.content.contentViewSection[index].fields
+                              .sideImageText
+                          }
+                          topImage={
+                            this.state.content.contentViewSection[index].fields
+                              .topImage.fields.file.url
+                          }
+                          topImageAlt={
+                            this.state.content.contentViewSection[index].fields
+                              .topImageAlt
+                          }
+                          bottomText={
+                            this.state.content.contentViewSection[index].fields
+                              .bottomText
+                          }
+                          rowDirection="row"
+                        />
+                        <Break src="hr-tumbleweed.png" />
+                        <BottomWrapper
+                          SingleImages={
+                            this.state.content.contentViewSection[index].fields
+                              .singleImages
+                          }
+                        />
+                        <Break src="hr-fishy.png" />
+                      </ContentViewItemWrapper>
+                    );
+                  }
                 }
-                topImage={
-                  this.state.content.contentViewSection[0].fields.topImage
-                    .fields.file.url
-                }
-                topImageAlt={
-                  this.state.content.contentViewSection[0].fields.topImageAlt
-                }
-                bottomText={
-                  this.state.content.contentViewSection[0].fields.bottomText
-                }
-              />
-              <Break src="hr-tumbleweed.png" />
-              <BottomWrapper
-                SingleImages={
-                  this.state.content.contentViewSection[0].fields.singleImages
-                }
-              />
-              <Break src="hr-fishy.png" />
-            </ContentViewItemWrapper>
+              )}
           </Wrapper>
         ) : (
           <div />

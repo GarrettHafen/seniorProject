@@ -16,6 +16,7 @@ export default props => {
         sideImageText={props.sideImageText}
         topImage={props.topImage}
         topImageAlt={props.topImageAlt}
+        rowDirection={props.rowDirection}
       />
       <BottomText bottomText={props.bottomText} />
     </TopWrapper>

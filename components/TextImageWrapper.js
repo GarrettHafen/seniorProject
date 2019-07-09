@@ -6,7 +6,7 @@ export default props => {
     width: 100%;
     margin: auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: ${props.rowDirection};
     justify-content: center;
     align-items: center;
   `;
