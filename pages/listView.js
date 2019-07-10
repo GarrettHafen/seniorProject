@@ -43,7 +43,7 @@ export default class Home extends Component {
       content: listView.items[0].fields,
       listViewItems: listArray
     });
-    console.log("window thingy " + window.location.href.split("/").pop());
+    console.log("window thingy " + window.location.href.split('/').pop());
     console.log("listView.items " + listView.items);
     //console.log(this.state.content.listViewItem[1].fields.pageUrl);
   }
@@ -126,8 +126,8 @@ export default class Home extends Component {
             <Break src="hr-train.png" />
           </Wrapper>
         ) : (
-          <div />
-        )}
+            <div />
+          )}
       </main>
     );
   }
