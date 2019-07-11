@@ -72,7 +72,7 @@ export default class Home extends Component {
             {this.state.contentViewSections &&
               this.state.contentViewSections.map(
                 (contentViewSection, index) => {
-                  console.log("index = " + index);
+                  //console.log("index = " + index);
                   if (index % 2 === 0) {
                     return (
                       <ContentViewItemWrapper>
@@ -142,8 +142,8 @@ export default class Home extends Component {
               )}
           </Wrapper>
         ) : (
-          <div />
-        )}
+            <div />
+          )}
       </main>
     );
   }

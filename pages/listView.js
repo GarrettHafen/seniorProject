@@ -43,7 +43,7 @@ export default class Home extends Component {
       content: listView.items[0].fields,
       listViewItems: listArray
     });
-    console.log("window thingy " + window.location.href.split("/")[window.location.href.split("/").length - 2]);
+    //console.log("window thingy " + window.location.href.split("/")[window.location.href.split("/").length - 2]);
     //    console.log("listView.items " + listView.items);
     //console.log(this.state.content.listViewItem[1].fields.pageUrl);
   }
