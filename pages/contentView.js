@@ -26,7 +26,7 @@ export default class Home extends Component {
   async componentDidMount() {
     const contentView = await contentful.query({
       content_type: "contentView",
-      "fields.pageUrl": window.location.href.split("/").pop()
+      "fields.pageUrl": window.location.href.split("/")[window.location.href.split("/").length - 2]
     });
     const Security = localStorage.getItem("authorized");
     if (!Security) {
